@@ -1,456 +1,636 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>East Coast Family Tour 2026</title>
-  <style>
-    :root {
-      --primary: #0f172a;
-      --secondary: #0284c7;
-      --accent: #38bdf8;
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text: #334155;
-      --border: #e2e8f0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>East Coast Family Vacation Itinerary</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --accent: #0284c7;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --border: #e2e8f0;
+        }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-      padding-bottom: 70px;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 16px;
+        }
 
-    /* Sticky Navigation Header */
-    nav {
-      position: sticky;
-      top: 0;
-      background-color: var(--primary);
-      color: white;
-      padding: 12px 16px;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 12px;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+        }
 
-    nav h1 { font-size: 1.1rem; font-weight: 700; }
-    
-    .nav-links {
-      display: flex;
-      gap: 12px;
-    }
+        header h1 {
+            margin: 0 0 6px 0;
+            font-size: 1.5rem;
+        }
 
-    .nav-links a {
-      color: #93c5fd;
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 600;
-      padding: 4px 8px;
-      border-radius: 4px;
-      transition: background 0.2s;
-    }
+        header p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
 
-    .nav-links a:hover { background-color: rgba(255,255,255,0.1); color: white; }
+        /* Nav Tabs */
+        .city-header {
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #64748b;
+            margin: 12px 0 6px 0;
+        }
 
-    /* Layout Container */
-    .container {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 0 16px;
-    }
+        .tab-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
 
-    /* Hero Banner */
-    .hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: white;
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    }
+        .tab-btn {
+            background-color: #e2e8f0;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text);
+            transition: all 0.2s ease;
+        }
 
-    .hero h2 { font-size: 1.6rem; margin-bottom: 6px; }
-    .hero p { color: var(--accent); font-size: 0.95rem; font-weight: 500; }
+        .tab-btn.active {
+            background-color: var(--accent);
+            color: white;
+        }
 
-    .stats-bar {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 10px;
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid #334155;
-    }
+        /* Content Sections */
+        .tab-content {
+            display: none;
+            background: var(--card-bg);
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
 
-    .stat-item { font-size: 0.8rem; color: #cbd5e1; }
-    .stat-item strong { display: block; color: white; font-size: 0.95rem; }
+        .tab-content.active {
+            display: block;
+        }
 
-    /* City Section Headers */
-    .city-section { margin-bottom: 30px; }
-    
-    .city-badge {
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: white;
-      margin-bottom: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+        .day-title {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.25rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 8px;
+        }
 
-    .bg-nyc { background-color: #0284c7; }
-    .bg-bos { background-color: #1e3a8a; }
-    .bg-dc { background-color: #14532d; }
+        /* Table Styling */
+        .table-responsive {
+            overflow-x: auto;
+        }
 
-    /* Day Cards */
-    .day-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px 18px;
-      margin-bottom: 12px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
-    }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
 
-    .day-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #f1f5f9;
-      padding-bottom: 8px;
-      margin-bottom: 12px;
-    }
+        th, td {
+            text-align: left;
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
 
-    .day-card-title { font-weight: 700; color: var(--primary); font-size: 1.05rem; }
-    .day-card-date { font-size: 0.8rem; color: #64748b; font-weight: 600; }
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary);
+            font-weight: 700;
+            white-space: nowrap;
+        }
 
-    .time-slot {
-      margin-bottom: 8px;
-      display: flex;
-      gap: 12px;
-      font-size: 0.9rem;
-    }
+        .time-col {
+            font-weight: bold;
+            white-space: nowrap;
+            color: var(--accent);
+        }
 
-    .time-label {
-      min-width: 85px;
-      font-weight: 700;
-      color: #475569;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
+        a.link-btn {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
 
-    .time-desc { flex-grow: 1; }
+        a.link-btn:hover {
+            text-decoration: underline;
+        }
 
-    /* Direct Web Links */
-    a.place-link {
-      color: var(--secondary);
-      text-decoration: none;
-      font-weight: 600;
-      border-bottom: 1px dashed var(--secondary);
-    }
-
-    a.place-link:hover { color: #0369a1; border-bottom-style: solid; }
-
-    /* Booking Dashboard Box */
-    .booking-box {
-      background-color: #f0fdf4;
-      border: 1px solid #bbf7d0;
-      border-radius: 10px;
-      padding: 18px;
-      margin-bottom: 24px;
-    }
-
-    .booking-box h3 { color: #166534; font-size: 1rem; margin-bottom: 10px; }
-
-    .checklist-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 8px;
-    }
-
-    .check-item {
-      font-size: 0.85rem;
-      color: #15803d;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* Floating Quick Links for Mobile */
-    .mobile-bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: white;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-around;
-      padding: 8px 0;
-      z-index: 1000;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-    }
-
-    .mobile-bottom-nav a {
-      text-decoration: none;
-      color: #64748b;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-align: center;
-    }
-
-    .mobile-bottom-nav a:hover { color: var(--secondary); }
-
-    @media (max-width: 600px) {
-      .time-slot { flex-direction: column; gap: 2px; }
-      .time-label { min-width: auto; }
-    }
-  </style>
+        @media (max-width: 600px) {
+            th, td {
+                font-size: 0.8rem;
+                padding: 8px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Sticky Top Nav -->
-  <nav>
-    <h1>🗽 East Coast Tour 2026</h1>
-    <div class="nav-links">
-      <a href="#nyc">NYC</a>
-      <a href="#boston">Boston</a>
-      <a href="#dc">DC</a>
-    </div>
-  </nav>
+    <header>
+        <h1>East Coast Family Vacation 2026</h1>
+        <p>NYC • Boston • Washington D.C.</p>
+    </header>
 
-  <div class="container">
-
-    <!-- Hero Header -->
-    <div class="hero">
-      <h2>Family Travel Guide</h2>
-      <p>New York City • Boston • Washington, D.C.</p>
-      <div class="stats-bar">
-        <div class="stat-item"><strong>July 31 – Aug 9</strong>Dates</div>
-        <div class="stat-item"><strong>3 Major Hubs</strong>Cities Visited</div>
-        <div class="stat-item"><strong>Amtrak Trains</strong>Transit</div>
-      </div>
+    <!-- Navigation Tabs -->
+    <div class="city-header">New York City</div>
+    <div class="tab-container">
+        <button class="tab-btn active" onclick="openTab('day1')">Day 1 (Jul 31)</button>
+        <button class="tab-btn" onclick="openTab('day2')">Day 2 (Aug 1)</button>
+        <button class="tab-btn" onclick="openTab('day3')">Day 3 (Aug 2)</button>
     </div>
 
-    <!-- Booking Dashboard -->
-    <div class="booking-box">
-      <h3>📌 Advance Reservation Checklist</h3>
-      <div class="checklist-grid">
-        <div class="check-item"><input type="checkbox"> Statue of Liberty Ferry Passes</div>
-        <div class="check-item"><input type="checkbox"> Top of the Rock Observatory</div>
-        <div class="check-item"><input type="checkbox"> 9/11 Museum Entry Tickets</div>
-        <div class="check-item"><input type="checkbox"> Boston Tea Party Museum Pass</div>
-        <div class="check-item"><input type="checkbox"> Fenway Park Guided Tour</div>
-        <div class="check-item"><input type="checkbox"> US Capitol Interior Tour</div>
-        <div class="check-item"><input type="checkbox"> Smithsonian Timed Passes</div>
-      </div>
+    <div class="city-header">Boston</div>
+    <div class="tab-container">
+        <button class="tab-btn" onclick="openTab('day4')">Day 4 (Aug 3)</button>
+        <button class="tab-btn" onclick="openTab('day5')">Day 5 (Aug 4)</button>
+        <button class="tab-btn" onclick="openTab('day6')">Day 6 (Aug 5)</button>
     </div>
 
-    <!-- LEG 1: NYC -->
-    <div class="city-section" id="nyc">
-      <span class="city-badge bg-nyc">Leg 1: New York City (July 31 – Aug 3)</span>
-
-      <div class="day-card">
-        <div class="day-card-header">
-          <span class="day-card-title">Day 1: Arrival & Times Square Walk</span>
-          <span class="day-date">Fri, Jul 31</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Afternoon</span>
-          <span class="time-desc">Check into <a class="place-link" href="https://www.hyatt.com" target="_blank">Hyatt Place Times Square</a> & unwind.</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Evening</span>
-          <span class="time-content">Stroll through the glowing <a class="place-link" href="https://www.broadway.org/" target="_blank">Broadway Theater District</a> and Times Square.</span>
-        </div>
-      </div>
-
-      <div class="day-card">
-        <div class="day-card-header">
-          <span class="day-card-title">Day 2: Liberty Island, Brooklyn Bridge & 5th Ave</span>
-          <span class="day-date">Sat, Aug 1</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Morning</span>
-          <span class="time-desc">Ferry from Battery Park to <a class="place-link" href="https://www.nps.gov/stli/" target="_blank">Liberty Island & Statue Museum</a>.</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Afternoon</span>
-          <span class="time-desc">Cross the <a class="place-link" href="https://www.nyc.gov/html/dot/html/infrastructure/brooklyn-bridge.shtml" target="_blank">Brooklyn Bridge</a> into DUMBO for waterfront photos.</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Evening</span>
-          <span class="time-desc">Midtown dinner and evening architecture stroll on <a class="place-link" href="https://www.fifthavenue.nyc/" target="_blank">5th Avenue</a>.</span>
-        </div>
-      </div>
-
-      <div class="day-card">
-        <div class="day-card-header">
-          <span class="day-card-title">Day 3: High Line, 9/11 Memorial & Central Park</span>
-          <span class="day-date">Sun, Aug 2</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Morning</span>
-          <span class="time-desc">Walk the elevated gardens along <a class="place-link" href="https://www.thehighline.org/" target="_blank">The High Line</a> park.</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Midday</span>
-          <span class="time-desc">Reflect at the <a class="place-link" href="https://www.911memorial.org/" target="_blank">9/11 Memorial & Museum</a> twin pools.</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Late Afternoon</span>
-          <span class="time-desc">Relax at Bethesda Terrace inside <a class="place-link" href="https://www.centralparknyc.org/" target="_blank">Central Park</a>.</span>
-        </div>
-      </div>
-
-      <div class="day-card">
-        <div class="day-card-header">
-          <span class="day-card-title">Day 4: Midtown Sights & Amtrak to Boston</span>
-          <span class="day-date">Mon, Aug 3</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Morning</span>
-          <span class="time-desc">Check out, leave bags with bellhop. Photos of <a class="place-link" href="https://www.esbnyc.com/" target="_blank">Empire State Building</a>.</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Midday</span>
-          <span class="time-desc">360° city views at <a class="place-link" href="https://www.rockefellercenter.com/" target="_blank">Top of the Rock</a> & lunch at <a class="place-link" href="https://bryantpark.org/" target="_blank">Bryant Park</a>.</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">6:05 PM</span>
-          <span class="time-desc">Board Amtrak at <a class="place-link" href="https://www.amtrak.com/stations/nyp" target="_blank">Moynihan Penn Station</a> to Boston.</span>
-        </div>
-      </div>
+    <div class="city-header">Washington D.C.</div>
+    <div class="tab-container">
+        <button class="tab-btn" onclick="openTab('day7')">Day 7 (Aug 6)</button>
+        <button class="tab-btn" onclick="openTab('day8')">Day 8 (Aug 7)</button>
+        <button class="tab-btn" onclick="openTab('day9')">Day 9 (Aug 8)</button>
+        <button class="tab-btn" onclick="openTab('day10')">Day 10 (Aug 9)</button>
     </div>
 
-    <!-- LEG 2: BOSTON -->
-    <div class="city-section" id="boston">
-      <span class="city-badge bg-bos">Leg 2: Boston, MA (Aug 3 – Aug 6)</span>
-
-      <div class="day-card">
-        <div class="day-card-header">
-          <span class="day-card-title">Day 1: Freedom Trail, Beacon Hill & Tea Party</span>
-          <span class="day-date">Tue, Aug 4</span>
+    <!-- DAY 1 -->
+    <div id="day1" class="tab-content active">
+        <h2 class="day-title">Day 1: July 31 — NYC Arrival & Central Park</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Attraction</th>
+                        <th>Activity Summary</th>
+                        <th>Website</th>
+                        <th>Comments & Logistics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-col">Afternoon</td>
+                        <td>Hotel Check-in</td>
+                        <td>Check into NYC accommodations & freshen up.</td>
+                        <td>—</td>
+                        <td>Get MetroCards or set up contactless payment (OMNY) on phones.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">4:00 PM</td>
+                        <td>Central Park Walk</td>
+                        <td>Relaxed walk around Bethesda Terrace and the Mall.</td>
+                        <td><a class="link-btn" href="https://www.centralparknyc.org/" target="_blank">Central Park</a></td>
+                        <td>Great spot to unwind after traveling. Grab an espresso or gelati nearby.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">7:00 PM</td>
+                        <td>Midtown Dinner</td>
+                        <td>Casual evening meal near Times Square / Rockefeller area.</td>
+                        <td>—</td>
+                        <td><strong>Restaurant Suggestion:</strong> Carmine's (Family-style Italian) or Los Tacos No. 1.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="time-slot">
-          <span class="time-label">Morning</span>
-          <span class="time-desc">Walk <a class="place-link" href="https://www.boston.gov/parks/public-garden" target="_blank">Public Garden</a> (*Ducklings*) & gas-lit <a class="place-link" href="https://www.boston.gov/neighborhoods/beacon-hill" target="_blank">Beacon Hill</a>.</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Midday</span>
-          <span class="time-desc">Follow the <a class="place-link" href="https://www.thefreedomtrail.org/" target="_blank">Freedom Trail</a> to <a class="place-link" href="https://faneuilhallmarketplace.com/" target="_blank">Faneuil Hall Marketplace</a>.</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Afternoon</span>
-          <span class="time-desc">Cannolis in North End & tour <a class="place-link" href="https://www.bostonteapartyship.com/" target="_blank">Boston Tea Party Ships Museum</a>.</span>
-        </div>
-      </div>
-
-      <div class="day-card">
-        <div class="day-card-header">
-          <span class="day-card-title">Day 2: Harvard, MIT Campuses & Fenway Park</span>
-          <span class="day-date">Wed, Aug 5</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Morning</span>
-          <span class="time-content">Stroll historic <a class="place-link" href="https://www.harvard.edu/" target="_blank">Harvard Yard</a> and Harvard Square.</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Midday</span>
-          <span class="time-desc">Explore futuristic buildings & river views at <a class="place-link" href="https://www.mit.edu/" target="_blank">MIT</a>.</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Afternoon</span>
-          <span class="time-desc">Guided historic tour of <a class="place-link" href="https://www.mlb.com/redsox/ballpark/tours" target="_blank">Fenway Park</a>.</span>
-        </div>
-      </div>
-
-      <div class="day-card">
-        <div class="day-card-header">
-          <span class="day-card-title">Day 3: Scenic Amtrak to Washington, D.C.</span>
-          <span class="day-date">Thu, Aug 6</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Daytime</span>
-          <span class="time-desc">Depart <a class="place-link" href="https://www.amtrak.com/stations/bos" target="_blank">Boston South Station</a> on Amtrak train (~8:10 PM arrival in DC).</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Evening</span>
-          <span class="time-desc">Check into Stanton Park / Capitol Hill home & local dinner.</span>
-        </div>
-      </div>
     </div>
 
-    <!-- LEG 3: DC -->
-    <div class="city-section" id="dc">
-      <span class="city-badge bg-dc">Leg 3: Washington, D.C. (Aug 6 – Aug 9)</span>
-
-      <div class="day-card">
-        <div class="day-card-header">
-          <span class="day-card-title">Day 1: US Capitol, Library of Congress & Museums</span>
-          <span class="day-date">Fri, Aug 7</span>
+    <!-- DAY 2 -->
+    <div id="day2" class="tab-content">
+        <h2 class="day-title">Day 2: August 1 — Lower Manhattan & Icons</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Attraction</th>
+                        <th>Activity Summary</th>
+                        <th>Website</th>
+                        <th>Comments & Logistics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-col">9:00 AM</td>
+                        <td>Statue of Liberty & Ellis Island</td>
+                        <td>Ferry ride and landmark exploration.</td>
+                        <td><a class="link-btn" href="https://www.statuecitycruises.com/" target="_blank">Statue City Cruises</a></td>
+                        <td>Book reserve ferry tickets in advance to skip general lines. Depart from Battery Park.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">1:30 PM</td>
+                        <td>Financial District & Wall St</td>
+                        <td>Walk by the Charging Bull, NYSE, and 9/11 Memorial plaza.</td>
+                        <td><a class="link-btn" href="https://www.911memorial.org/" target="_blank">9/11 Memorial</a></td>
+                        <td>Lunch near Trinity Church area or Westfield World Trade Center food hall.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">5:00 PM</td>
+                        <td>Brooklyn Bridge Walk</td>
+                        <td>Walk across the pedestrian path from Manhattan into Brooklyn.</td>
+                        <td><a class="link-btn" href="https://www.nyc.gov/html/dot/html/infrastructure/brooklyn-bridge.shtml" target="_blank">NYC DOT</a></td>
+                        <td>Golden hour views back toward the Manhattan skyline.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">7:00 PM</td>
+                        <td>DUMBO Evening</td>
+                        <td>Explore DUMBO waterfront and dinner.</td>
+                        <td>—</td>
+                        <td><strong>Dinner:</strong> Julian's or Grimaldi's Pizza in DUMBO; ice cream at Brooklyn Ice Cream Factory.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="time-slot">
-          <span class="time-label">Morning</span>
-          <span class="time-desc">Guided tour of <a class="place-link" href="https://www.visitthecapitol.gov/" target="_blank">US Capitol</a> & walk to <a class="place-link" href="https://www.loc.gov/" target="_blank">Library of Congress</a>.</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Midday</span>
-          <span class="time-desc">Visit <a class="place-link" href="https://americanhistory.si.edu/" target="_blank">American History</a> & <a class="place-link" href="https://naturalhistory.si.edu/" target="_blank">Natural History</a> museums.</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Late Afternoon</span>
-          <span class="time-desc">Photo stops outside <a class="place-link" href="https://www.whitehouse.gov/" target="_blank">The White House</a>.</span>
-        </div>
-      </div>
-
-      <div class="day-card">
-        <div class="day-card-header">
-          <span class="day-card-title">Day 2: National Mall Monuments & Georgetown</span>
-          <span class="day-date">Sat, Aug 8</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Morning</span>
-          <span class="time-desc">Monuments Loop: <a class="place-link" href="https://www.nps.gov/wamo/" target="_blank">Washington Monument</a> ➔ <a class="place-link" href="https://www.nps.gov/linc/" target="_blank">Lincoln Memorial</a>.</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Afternoon</span>
-          <span class="time-desc">Cobblestone streets & waterfront dining in historic <a class="place-link" href="https://georgetowndc.com/" target="_blank">Georgetown</a>.</span>
-        </div>
-      </div>
-
-      <div class="day-card">
-        <div class="day-card-header">
-          <span class="day-card-title">Day 3: Breakfast & Return Flight Home</span>
-          <span class="day-date">Sun, Aug 9</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Morning</span>
-          <span class="time-desc">Relaxed Capitol Hill breakfast & checkout.</span>
-        </div>
-        <div class="time-slot">
-          <span class="time-label">Afternoon</span>
-          <span class="time-desc">Flight from <a class="place-link" href="https://www.flydulles.com/" target="_blank">Dulles (IAD)</a> home to San Francisco (SFO).</span>
-        </div>
-      </div>
     </div>
 
-  </div>
+    <!-- DAY 3 -->
+    <div id="day3" class="tab-content">
+        <h2 class="day-title">Day 3: August 2 — High Line, Chelsea & Broadway</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Attraction</th>
+                        <th>Activity Summary</th>
+                        <th>Website</th>
+                        <th>Comments & Logistics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-col">9:30 AM</td>
+                        <td>The High Line</td>
+                        <td>Stroll along the elevated park built on historic rail lines.</td>
+                        <td><a class="link-btn" href="https://www.thehighline.org/" target="_blank">The High Line</a></td>
+                        <td>Start at Hudson Yards / Vessel and walk south toward Chelsea.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">11:30 AM</td>
+                        <td>Chelsea Market</td>
+                        <td>Explore food hall and artisan shops.</td>
+                        <td><a class="link-btn" href="https://www.chelseamarket.com/" target="_blank">Chelsea Market</a></td>
+                        <td>Great lunch spot with tons of family options (tacos, seafood, bakeries).</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">3:00 PM</td>
+                        <td>Midtown & Fifth Ave</td>
+                        <td>St. Patrick's Cathedral, Rockefeller Center walk.</td>
+                        <td>—</td>
+                        <td>Rest up before the evening show.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">7:00 PM</td>
+                        <td>Broadway Show & Times Square</td>
+                        <td>Evening theater performance and night lights.</td>
+                        <td><a class="link-btn" href="https://www.broadway.org/" target="_blank">Broadway.org</a></td>
+                        <td>Book tickets early. Experience Times Square lights right after the show.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-  <!-- Mobile Quick Dock Bar -->
-  <div class="mobile-bottom-nav">
-    <a href="#nyc">🗽 NYC</a>
-    <a href="#boston">⚓ Boston</a>
-    <a href="#dc">🏛️ DC</a>
-  </div>
+    <!-- DAY 4 -->
+    <div id="day4" class="tab-content">
+        <h2 class="day-title">Day 4: August 3 — NYC to Boston Transfer</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Attraction</th>
+                        <th>Activity Summary</th>
+                        <th>Website</th>
+                        <th>Comments & Logistics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-col">Morning</td>
+                        <td>Amtrak Regional / Acela</td>
+                        <td>Train trip from Moynihan Train Hall (NYC) to South Station (Boston).</td>
+                        <td><a class="link-btn" href="https://www.amtrak.com/" target="_blank">Amtrak</a></td>
+                        <td>~4 hour scenic train ride. Arrive early at Penn Station / Moynihan Train Hall.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">2:00 PM</td>
+                        <td>Hotel Check-in (Boston)</td>
+                        <td>Drop luggage and get settled in Boston.</td>
+                        <td>—</td>
+                        <td>Pick up CharlieCards or use contactless fare for the MBTA Subway (T).</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">4:30 PM</td>
+                        <td>Boston Common & Public Garden</td>
+                        <td>Stroll through America's oldest public park and see the Swan Boats.</td>
+                        <td><a class="link-btn" href="https://www.boston.gov/parks/boston-common" target="_blank">Boston Parks</a></td>
+                        <td>Relaxed walk after the morning train ride.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">6:30 PM</td>
+                        <td>North End Dinner</td>
+                        <td>Explore Boston's historic Italian neighborhood.</td>
+                        <td>—</td>
+                        <td><strong>Food Notes:</strong> Dinner in the North End followed by cannolis from Mike's Pastry or Modern Pastry.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
+    <!-- DAY 5 -->
+    <div id="day5" class="tab-content">
+        <h2 class="day-title">Day 5: August 4 — Freedom Trail & Maritime History</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Attraction</th>
+                        <th>Activity Summary</th>
+                        <th>Website</th>
+                        <th>Comments & Logistics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-col">9:00 AM</td>
+                        <td>Freedom Trail Walking Tour</td>
+                        <td>Walk the 2.5-mile red brick trail covering 16 historical sites.</td>
+                        <td><a class="link-btn" href="https://www.thefreedomtrail.org/" target="_blank">Freedom Trail</a></td>
+                        <td>Wear good walking shoes! Key stops: Granary Burying Ground, Old State House, Paul Revere House.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">12:30 PM</td>
+                        <td>Faneuil Hall & Quincy Market</td>
+                        <td>Lunch stop inside historic food hall.</td>
+                        <td><a class="link-btn" href="https://faneuilhallmarket.com/" target="_blank">Faneuil Hall</a></td>
+                        <td>Famous spot for Boston chowder served in bread bowls.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">2:30 PM</td>
+                        <td>USS Constitution & Charlestown</td>
+                        <td>Visit "Old Ironsides" in the historic Navy Yard.</td>
+                        <td><a class="link-btn" href="https://www.navy.mil/USS-Constitution/" target="_blank">USS Constitution</a></td>
+                        <td>Valid government ID required for adults to board the active navy vessel.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">6:30 PM</td>
+                        <td>Seaport District Dinner</td>
+                        <td>Waterfront dining and stroll.</td>
+                        <td>—</td>
+                        <td>Modern harbor views and fresh seafood along the harbor walk.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- DAY 6 -->
+    <div id="day6" class="tab-content">
+        <h2 class="day-title">Day 6: August 5 — Cambridge, Harvard & Back Bay</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Attraction</th>
+                        <th>Activity Summary</th>
+                        <th>Website</th>
+                        <th>Comments & Logistics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-col">9:30 AM</td>
+                        <td>Harvard University Yard</td>
+                        <td>Explore Harvard Yard and Harvard Square in Cambridge.</td>
+                        <td><a class="link-btn" href="https://www.harvard.edu/visit/" target="_blank">Harvard Visiting</a></td>
+                        <td>Take the Red Line T to Harvard Station. Rub John Harvard's shoe for luck!</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">12:00 PM</td>
+                        <td>MIT & Charles River Walk</td>
+                        <td>Self-guided walk around MIT campus and river views.</td>
+                        <td><a class="link-btn" href="https://www.mit.edu/" target="_blank">MIT</a></td>
+                        <td>Great views of the Boston skyline across the river.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">3:00 PM</td>
+                        <td>Back Bay & Newbury Street</td>
+                        <td>Architecture, brownstones, and shopping.</td>
+                        <td>—</td>
+                        <td>Walk Newbury Street and see Copley Square & Boston Public Library.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- DAY 7 -->
+    <div id="day7" class="tab-content">
+        <h2 class="day-title">Day 7: August 6 — Boston to Washington D.C. Transfer</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Attraction</th>
+                        <th>Activity Summary</th>
+                        <th>Website</th>
+                        <th>Comments & Logistics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-col">Morning</td>
+                        <td>Amtrak to Washington D.C.</td>
+                        <td>Train trip from Boston South Station to D.C. Union Station.</td>
+                        <td><a class="link-btn" href="https://www.amtrak.com/" target="_blank">Amtrak</a></td>
+                        <td>Enjoy the coastal Northeast Corridor views. Union Station is right in D.C.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">3:30 PM</td>
+                        <td>Hotel Check-in (D.C.)</td>
+                        <td>Unpack and recharge.</td>
+                        <td>—</td>
+                        <td>Get SmarTrip cards or tap-to-pay set up for the D.C. Metro.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">6:00 PM</td>
+                        <td>National Mall Sunset Stroll</td>
+                        <td>Evening stroll near the Capitol and Washington Monument.</td>
+                        <td><a class="link-btn" href="https://www.nps.gov/nama/index.htm" target="_blank">National Mall NPS</a></td>
+                        <td>D.C. monuments look incredible as twilight sets in and crowds thin out.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- DAY 8 -->
+    <div id="day8" class="tab-content">
+        <h2 class="day-title">Day 8: August 7 — Natural History & Capital Highlights</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Attraction</th>
+                        <th>Activity Summary</th>
+                        <th>Website</th>
+                        <th>Comments & Logistics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-col">10:00 AM</td>
+                        <td>Smithsonian National Museum of Natural History</td>
+                        <td>Hope Diamond, Ocean Hall, Dinosaur exhibits.</td>
+                        <td><a class="link-btn" href="https://naturalhistory.si.edu/" target="_blank">Natural History</a></td>
+                        <td>Free admission. Plan for ~2.5–3 hours. Enter early right at opening.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">1:30 PM</td>
+                        <td>Lunch & National Archives</td>
+                        <td>See Declaration of Independence & Constitution.</td>
+                        <td><a class="link-btn" href="https://www.archives.gov/" target="_blank">National Archives</a></td>
+                        <td>Timed entry tickets recommended to skip lines. Nearby food along Pennsylvania Ave.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">4:30 PM</td>
+                        <td>U.S. Capitol Exterior & Grounds</td>
+                        <td>Walk around the Capitol Plaza and Library of Congress exterior.</td>
+                        <td><a class="link-btn" href="https://www.visitthecapitol.gov/" target="_blank">Capitol Visitor Center</a></td>
+                        <td>Great photo opportunities from the Capitol Reflecting Pool.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- DAY 9 -->
+    <div id="day9" class="tab-content">
+        <h2 class="day-title">Day 9: August 8 — American History & Memorials</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Attraction</th>
+                        <th>Activity Summary</th>
+                        <th>Website</th>
+                        <th>Comments & Logistics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-col">10:00 AM</td>
+                        <td>Smithsonian National Museum of American History</td>
+                        <td>Star-Spangled Banner, First Ladies gowns, history of innovation.</td>
+                        <td><a class="link-btn" href="https://americanhistory.si.edu/" target="_blank">American History</a></td>
+                        <td>Free admission. Features iconic Americana exhibits.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">2:00 PM</td>
+                        <td>Lincoln Memorial & Reflecting Pool</td>
+                        <td>Visit Lincoln, Vietnam Veterans, and Korean War Memorials.</td>
+                        <td><a class="link-btn" href="https://www.nps.gov/linc/index.htm" target="_blank">Lincoln Memorial</a></td>
+                        <td>Bring water bottles—it gets warm walking across the open Mall space.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">6:30 PM</td>
+                        <td>Georgetown Waterfront Dinner</td>
+                        <td>Historic neighborhood walk and riverfront dining.</td>
+                        <td>—</td>
+                        <td>Great restaurants along the Potomac River. Stroll down M Street.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- DAY 10 -->
+    <div id="day10" class="tab-content">
+        <h2 class="day-title">Day 10: August 9 — Wrap-Up & Departure</h2>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Attraction</th>
+                        <th>Activity Summary</th>
+                        <th>Website</th>
+                        <th>Comments & Logistics</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-col">Morning</td>
+                        <td>Georgetown / City Stroll</td>
+                        <td>Souvenir shopping, coffee, relaxed final morning walk.</td>
+                        <td>—</td>
+                        <td>Check out of hotel and store bags if needed.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">Afternoon</td>
+                        <td>Transfer to Dulles (IAD) Airport</td>
+                        <td>Travel to Washington Dulles International Airport.</td>
+                        <td><a class="link-btn" href="https://www.flydulles.com/" target="_blank">Dulles Airport</a></td>
+                        <td>Take the Silver Line Metro directly to IAD station or book a taxi/ride-share. Allow extra time during peak hours.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">Evening</td>
+                        <td>Flight Home</td>
+                        <td>Board flight and head home.</td>
+                        <td>—</td>
+                        <td>Have flight confirmation details handy on phone.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function openTab(tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Deactivate all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+
+            // Set current button active
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
