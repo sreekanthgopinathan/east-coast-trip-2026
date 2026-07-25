@@ -12,6 +12,7 @@
             --card-bg: #ffffff;
             --text: #0f172a;
             --border: #e2e8f0;
+            --highlight: #16a34a;
         }
 
         body {
@@ -57,7 +58,7 @@
             margin-bottom: 20px;
         }
 
-        /* Tier 1: City Segmented Control */
+        /* Tier 1: Selector */
         .city-selector {
             display: flex;
             gap: 6px;
@@ -65,15 +66,17 @@
             padding: 4px;
             border-radius: 8px;
             margin-bottom: 12px;
+            flex-wrap: wrap;
         }
 
         .city-tab {
             flex: 1;
+            min-width: 120px;
             background: transparent;
             border: none;
             padding: 10px 8px;
             border-radius: 6px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             color: #64748b;
             cursor: pointer;
@@ -181,6 +184,27 @@
             color: var(--accent);
         }
 
+        .veg-tag {
+            display: inline-block;
+            background-color: #dcfce7;
+            color: #15803d;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-bottom: 4px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: #fef3c7;
+            color: #b45309;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+
         a.link-btn {
             color: var(--accent);
             text-decoration: none;
@@ -220,13 +244,14 @@
         <p>New York City • Boston • Washington D.C.</p>
     </header>
 
-    <!-- Redesigned Top Navigation -->
+    <!-- Top Navigation -->
     <div class="nav-wrapper">
-        <!-- City Selector -->
+        <!-- City & Section Selector -->
         <div class="city-selector">
             <button class="city-tab active" onclick="switchCity('nyc', 'day1', this)">🗽 New York City</button>
             <button class="city-tab" onclick="switchCity('boston', 'day5', this)">⛵ Boston</button>
             <button class="city-tab" onclick="switchCity('dc', 'day7', this)">🏛️ Washington D.C.</button>
+            <button class="city-tab" onclick="switchCity('reminders', 'reminders', this)">📋 Reminders & Bookings</button>
         </div>
 
         <!-- NYC Day Pills -->
@@ -264,7 +289,7 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Comments & Logistics</th>
+                        <th>Vegetarian Dining & Logistics</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -273,14 +298,17 @@
                         <td>Flight Arrival & Hotel Check-in</td>
                         <td>Arrive from SFO into Newark (EWR). Check into Hyatt Place Times Square.</td>
                         <td><a class="link-btn" href="https://www.hyatt.com/" target="_blank">Hyatt Place</a></td>
-                        <td>Set up OMNY / MetroCards on phones for easy subway transit.</td>
+                        <td>Set up OMNY on mobile wallet for subway tap-and-go.</td>
                     </tr>
                     <tr>
                         <td class="time-col">6:00 PM</td>
-                        <td>Theater District Evening Stroll</td>
-                        <td>Relaxed walk around Times Square, Broadway theater corridor, and nearby avenues.</td>
+                        <td>Theater District Stroll & Dinner</td>
+                        <td>Relaxed walk around Times Square and Broadway.</td>
                         <td><a class="link-btn" href="https://www.timessquarenyc.org/" target="_blank">Times Square</a></td>
-                        <td>Unwind after cross-country travel. Great neighborhood for a quick casual dinner.</td>
+                        <td>
+                            <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
+                            <strong>PS Kitchen</strong> (100% plant-based artisanal dining in Theater District) or <strong>Saravanaa Bhavan</strong> (authentic South Indian vegetarian nearby).
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -299,30 +327,33 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Comments & Logistics</th>
+                        <th>Vegetarian Dining & Logistics</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td class="time-col">9:00 AM</td>
                         <td>Statue of Liberty Ferry</td>
-                        <td>Morning ferry ride from Battery Park out to Liberty & Ellis Islands.</td>
+                        <td>Ferry ride from Battery Park to Liberty & Ellis Islands.</td>
                         <td><a class="link-btn" href="https://www.statuecitycruises.com/" target="_blank">Statue City Cruises</a></td>
-                        <td>Reserve tickets early. Take subway down to South Ferry / Bowling Green.</td>
+                        <td>Reserve tickets early. Take 1 Train down to South Ferry.</td>
                     </tr>
                     <tr>
                         <td class="time-col">1:30 PM</td>
-                        <td>Brooklyn Bridge Walk</td>
-                        <td>Pedestrian walk across the historic Brooklyn Bridge.</td>
+                        <td>Brooklyn Bridge & DUMBO</td>
+                        <td>Pedestrian walk across Brooklyn Bridge into DUMBO.</td>
                         <td><a class="link-btn" href="https://www.nyc.gov/html/dot/html/infrastructure/brooklyn-bridge.shtml" target="_blank">NYC DOT</a></td>
-                        <td>Walk from Manhattan toward Brooklyn for iconic city skyline views.</td>
+                        <td>
+                            <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
+                            Lunch at <strong>Jajaja Plantas Mexicana</strong> (100% plant-based Mexican in FiDi) or vegetarian brick-oven pizza in DUMBO at <strong>Sottocasa</strong>.
+                        </td>
                     </tr>
                     <tr>
                         <td class="time-col">5:30 PM</td>
                         <td>5th Avenue Evening Stroll</td>
-                        <td>Walk along 5th Avenue past Rockefeller Center & St. Patrick's Cathedral.</td>
+                        <td>Walk past Rockefeller Center & St. Patrick's Cathedral.</td>
                         <td><a class="link-btn" href="https://www.rockefellercenter.com/" target="_blank">Rockefeller Center</a></td>
-                        <td>Great evening atmosphere with plenty of dinner options nearby in Midtown.</td>
+                        <td>Midtown evening walk and dinner.</td>
                     </tr>
                 </tbody>
             </table>
@@ -341,30 +372,36 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Comments & Logistics</th>
+                        <th>Vegetarian Dining & Logistics</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td class="time-col">9:30 AM</td>
-                        <td>The High Line Walk</td>
-                        <td>Elevated park walk starting near Hudson Yards heading south through Chelsea.</td>
+                        <td>The High Line & Chelsea Market</td>
+                        <td>Elevated park walk starting near Hudson Yards.</td>
                         <td><a class="link-btn" href="https://www.thehighline.org/" target="_blank">The High Line</a></td>
-                        <td>Grab coffee and light morning snacks at Chelsea Market along the route.</td>
+                        <td>
+                            <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
+                            Grab plant-based sushi at <strong>Beyond Sushi</strong> or hand-pulled veg noodles at <strong>Very Fresh Noodles</strong> in Chelsea Market.
+                        </td>
                     </tr>
                     <tr>
                         <td class="time-col">1:30 PM</td>
                         <td>9/11 Memorial & Museum</td>
-                        <td>Visit the Reflecting Pools and World Trade Center Plaza museum exhibit.</td>
+                        <td>Reflecting Pools and World Trade Center Plaza.</td>
                         <td><a class="link-btn" href="https://www.911memorial.org/" target="_blank">9/11 Memorial</a></td>
-                        <td>Reserve timed museum admission tickets in advance.</td>
+                        <td>Pre-booked timed admission pass required.</td>
                     </tr>
                     <tr>
                         <td class="time-col">5:00 PM</td>
-                        <td>Central Park Relaxation</td>
-                        <td>Late afternoon stroll through Central Park (Bethesda Terrace & The Mall).</td>
+                        <td>Central Park & Evening Dinner</td>
+                        <td>Late afternoon stroll through Central Park.</td>
                         <td><a class="link-btn" href="https://www.centralparknyc.org/" target="_blank">Central Park</a></td>
-                        <td>Perfect place to relax before an evening family dinner.</td>
+                        <td>
+                            <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
+                            Dinner at <strong>PLANTA Queen</strong> (NoMad - Asian plant-based) or <strong>Ananda</strong>.
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -383,37 +420,33 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Comments & Logistics</th>
+                        <th>Vegetarian Dining & Logistics</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td class="time-col">10:00 AM</td>
                         <td>Empire State Building & Top of the Rock</td>
-                        <td>Midtown landmark views and photo opportunities.</td>
+                        <td>Midtown skyline viewpoints.</td>
                         <td><a class="link-btn" href="https://www.esbnyc.com/" target="_blank">Empire State Bldg</a></td>
-                        <td>Check out of hotel, leave luggage at front desk or store near Moynihan Hall.</td>
+                        <td>Check out of hotel; hold luggage at hotel or Moynihan Hall.</td>
                     </tr>
                     <tr>
                         <td class="time-col">1:00 PM</td>
-                        <td>Bryant Park & Midtown Lunch</td>
-                        <td>Relax in Bryant Park and explore the NY Public Library Main Branch.</td>
+                        <td>Bryant Park Lunch</td>
+                        <td>Relax in Bryant Park near NY Public Library.</td>
                         <td><a class="link-btn" href="https://bryantpark.org/" target="_blank">Bryant Park</a></td>
-                        <td>Casual lunch around the park before retrieving bags.</td>
-                    </tr>
-                    <tr>
-                        <td class="time-col">5:15 PM</td>
-                        <td>Moynihan Train Hall Arrival</td>
-                        <td>Head to Penn Station / Moynihan Train Hall for train boarding.</td>
-                        <td><a class="link-btn" href="https://www.amtrak.com/" target="_blank">Amtrak</a></td>
-                        <td>Arrive early to grab seats together and onboard snacks.</td>
+                        <td>
+                            <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
+                            Grab lunch at <strong>Beatnic</strong> (vegan burgers/salads) or <strong>UrbanSpace Food Hall</strong> near Bryant Park.
+                        </td>
                     </tr>
                     <tr>
                         <td class="time-col">6:05 PM</td>
                         <td>Amtrak Acela to Boston</td>
-                        <td>Evening high-speed train departure to Boston South Station.</td>
+                        <td>Train departure from Moynihan Train Hall to Boston.</td>
                         <td><a class="link-btn" href="https://www.amtrak.com/acela-train" target="_blank">Acela Express</a></td>
-                        <td>Arrive in Boston late evening; check into Boston hotel.</td>
+                        <td>Arrive at station by 5:15 PM for boarding. Check into Boston hotel late evening.</td>
                     </tr>
                 </tbody>
             </table>
@@ -432,37 +465,43 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Comments & Logistics</th>
+                        <th>Vegetarian Dining & Logistics</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td class="time-col">9:00 AM</td>
-                        <td>Freedom Trail Walking Tour</td>
-                        <td>Walk the 2.5-mile historic trail (Boston Common, Granary Burying Ground, Paul Revere House).</td>
+                        <td>Freedom Trail Walk</td>
+                        <td>2.5-mile trail (Boston Common, Paul Revere House).</td>
                         <td><a class="link-btn" href="https://www.thefreedomtrail.org/" target="_blank">Freedom Trail</a></td>
                         <td>Wear comfortable walking shoes.</td>
                     </tr>
                     <tr>
                         <td class="time-col">12:30 PM</td>
                         <td>Faneuil Hall & Quincy Market</td>
-                        <td>Lunch inside the historic market hall.</td>
+                        <td>Lunch inside historic market hall.</td>
                         <td><a class="link-btn" href="https://faneuilhallmarket.com/" target="_blank">Faneuil Hall</a></td>
-                        <td>Great place for New England clam chowder.</td>
+                        <td>
+                            <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
+                            Try <strong>Clover Food Lab</strong> (famous local farm-to-table vegetarian chain) or Boston vegetarian chowder.
+                        </td>
                     </tr>
                     <tr>
                         <td class="time-col">2:30 PM</td>
                         <td>USS Constitution & Charlestown</td>
-                        <td>Tour "Old Ironsides" in the Navy Yard.</td>
+                        <td>Tour "Old Ironsides" in Navy Yard.</td>
                         <td><a class="link-btn" href="https://www.navy.mil/USS-Constitution/" target="_blank">USS Constitution</a></td>
-                        <td>Government ID required for adults to board the active navy ship.</td>
+                        <td>Valid ID required for adults.</td>
                     </tr>
                     <tr>
                         <td class="time-col">6:30 PM</td>
                         <td>North End Dinner</td>
-                        <td>Dinner in Boston's historic Italian quarter.</td>
+                        <td>Italian quarter stroll & dinner.</td>
                         <td>—</td>
-                        <td>Follow up dinner with cannolis at Mike's Pastry or Modern Pastry.</td>
+                        <td>
+                            <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
+                            Dinner at <strong>Terramia</strong> or <strong>Rina's Pizzeria</strong> (excellent vegetarian eggplant & pasta dishes), followed by cannolis at Modern Pastry.
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -481,37 +520,33 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Comments & Logistics</th>
+                        <th>Vegetarian Dining & Logistics</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td class="time-col">9:30 AM</td>
                         <td>Harvard University & Yard</td>
-                        <td>Self-guided walk around Harvard Yard and Harvard Square in Cambridge.</td>
+                        <td>Explore Harvard Yard and Harvard Square.</td>
                         <td><a class="link-btn" href="https://www.harvard.edu/visit/" target="_blank">Harvard Visiting</a></td>
-                        <td>Take the MBTA Red Line to Harvard Station.</td>
+                        <td>Take MBTA Red Line to Harvard Station.</td>
                     </tr>
                     <tr>
                         <td class="time-col">12:00 PM</td>
                         <td>MIT & Charles River Waterfront</td>
-                        <td>Explore MIT campus grounds and scenic Charles River views.</td>
+                        <td>Campus grounds walk and river views.</td>
                         <td><a class="link-btn" href="https://www.mit.edu/" target="_blank">MIT</a></td>
-                        <td>Panoramas of the Boston skyline across the river.</td>
+                        <td>
+                            <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
+                            Lunch at <strong>Veggie Galaxy</strong> (classic Cambridge diner with 100% vegetarian menu) or <strong>Life Alive Organic Cafe</strong>.
+                        </td>
                     </tr>
                     <tr>
                         <td class="time-col">3:00 PM</td>
                         <td>Back Bay & Newbury Street</td>
-                        <td>Stroll Newbury Street, Copley Square, and Boston Public Library.</td>
+                        <td>Brownstone architecture & shopping.</td>
                         <td>—</td>
-                        <td>Historic brownstones and shopping.</td>
-                    </tr>
-                    <tr>
-                        <td class="time-col">6:30 PM</td>
-                        <td>Seaport District Dinner</td>
-                        <td>Waterfront dining and harbour walk stroll.</td>
-                        <td>—</td>
-                        <td>Fresh seafood along the Boston harbor.</td>
+                        <td>Stroll Copley Square & Boston Public Library.</td>
                     </tr>
                 </tbody>
             </table>
@@ -530,30 +565,26 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Comments & Logistics</th>
+                        <th>Vegetarian Dining & Logistics</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td class="time-col">Morning</td>
                         <td>Amtrak Train to D.C.</td>
-                        <td>Scenic train trip from Boston South Station to D.C. Union Station.</td>
+                        <td>Train journey from South Station to Union Station.</td>
                         <td><a class="link-btn" href="https://www.amtrak.com/" target="_blank">Amtrak</a></td>
-                        <td>Arrive right at D.C. Union Station near the Capitol.</td>
-                    </tr>
-                    <tr>
-                        <td class="time-col">3:30 PM</td>
-                        <td>D.C. Hotel Check-in</td>
-                        <td>Check in, unpack, and recharge.</td>
-                        <td>—</td>
-                        <td>Set up SmarTrip cards or mobile payment for D.C. Metro.</td>
+                        <td>Arrive at Union Station near Capitol. Check into D.C. hotel.</td>
                     </tr>
                     <tr>
                         <td class="time-col">6:00 PM</td>
                         <td>National Mall Sunset Stroll</td>
-                        <td>Evening stroll around Capitol grounds and Washington Monument.</td>
+                        <td>Evening stroll near Capitol and Washington Monument.</td>
                         <td><a class="link-btn" href="https://www.nps.gov/nama/index.htm" target="_blank">National Mall NPS</a></td>
-                        <td>Monuments look fantastic illuminated at dusk.</td>
+                        <td>
+                            <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
+                            Dinner at <strong>Shouk</strong> (100% plant-based Middle Eastern street food) or <strong>RASA</strong> (fast-casual Indian vegetarian bowls).
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -572,30 +603,36 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Comments & Logistics</th>
+                        <th>Vegetarian Dining & Logistics</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td class="time-col">10:00 AM</td>
-                        <td>Smithsonian National Museum of Natural History</td>
-                        <td>Hope Diamond, Ocean Hall, Dinosaur hall.</td>
+                        <td>Smithsonian Museum of Natural History</td>
+                        <td>Hope Diamond, Ocean Hall, Dinosaur exhibit.</td>
                         <td><a class="link-btn" href="https://naturalhistory.si.edu/" target="_blank">Natural History</a></td>
-                        <td>Free entry. Arrive right at opening to avoid queues.</td>
+                        <td>Free entry. Arrive at 10 AM opening.</td>
                     </tr>
                     <tr>
                         <td class="time-col">1:30 PM</td>
                         <td>National Archives</td>
-                        <td>See the Declaration of Independence, Constitution, and Bill of Rights.</td>
+                        <td>Declaration of Independence & Constitution.</td>
                         <td><a class="link-btn" href="https://www.archives.gov/" target="_blank">National Archives</a></td>
-                        <td>Timed entry pass recommended. Lunch along Pennsylvania Ave.</td>
+                        <td>
+                            <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
+                            Grab lunch at <strong>Falafel Inc</strong> (fresh falafel & hummus) along Pennsylvania Ave. Reserve $1 timed pass in advance.
+                        </td>
                     </tr>
                     <tr>
                         <td class="time-col">4:30 PM</td>
-                        <td>U.S. Capitol Grounds</td>
-                        <td>Walk around Capitol Plaza and Reflecting Pool plaza.</td>
+                        <td>Capitol Grounds & Evening Dinner</td>
+                        <td>Capitol Plaza and Reflecting Pool photos.</td>
                         <td><a class="link-btn" href="https://www.visitthecapitol.gov/" target="_blank">Capitol Visitor Center</a></td>
-                        <td>Great location for family photos.</td>
+                        <td>
+                            <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
+                            Dinner at <strong>Rasika</strong> (upscale Indian with extensive vegetarian dishes).
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -614,30 +651,33 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Comments & Logistics</th>
+                        <th>Vegetarian Dining & Logistics</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td class="time-col">10:00 AM</td>
-                        <td>Smithsonian National Museum of American History</td>
-                        <td>Star-Spangled Banner, First Ladies exhibit, history of American innovation.</td>
+                        <td>Smithsonian Museum of American History</td>
+                        <td>Star-Spangled Banner, First Ladies exhibit.</td>
                         <td><a class="link-btn" href="https://americanhistory.si.edu/" target="_blank">American History</a></td>
-                        <td>Free entry. Plan for ~2.5 to 3 hours.</td>
+                        <td>Free entry. Allow ~2.5 hours.</td>
                     </tr>
                     <tr>
                         <td class="time-col">2:00 PM</td>
                         <td>Lincoln Memorial & Reflecting Pool</td>
-                        <td>Visit Lincoln Memorial, World War II Memorial, and Vietnam Veterans Memorial.</td>
+                        <td>Lincoln, WWII, and Vietnam Memorials.</td>
                         <td><a class="link-btn" href="https://www.nps.gov/linc/index.htm" target="_blank">Lincoln Memorial</a></td>
-                        <td>Bring reusable water bottles for walking the Mall.</td>
+                        <td>Bring water bottles for open outdoor walking.</td>
                     </tr>
                     <tr>
                         <td class="time-col">6:30 PM</td>
                         <td>Georgetown Waterfront Dinner</td>
-                        <td>Stroll historic M Street and dinner along the Potomac riverfront.</td>
+                        <td>Historic M Street stroll and riverfront dining.</td>
                         <td>—</td>
-                        <td>Scenic riverside restaurants.</td>
+                        <td>
+                            <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
+                            Dinner at <strong>Chaia Tacos</strong> (100% plant-based artisanal tacos in historic Georgetown canal building).
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -656,30 +696,107 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Comments & Logistics</th>
+                        <th>Vegetarian Dining & Logistics</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td class="time-col">Morning</td>
-                        <td>Georgetown Morning Stroll</td>
-                        <td>Coffee, relaxed final morning walk, and hotel check-out.</td>
+                        <td>Georgetown Stroll & Check-out</td>
+                        <td>Morning coffee and hotel check-out.</td>
                         <td>—</td>
-                        <td>Leave bags stored at hotel concierge.</td>
+                        <td>
+                            <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
+                            Coffee & breakfast at <strong>Call Your Mother Deli</strong> (veg bagel sandwiches) or <strong>Tatte Bakery</strong>.
+                        </td>
                     </tr>
                     <tr>
                         <td class="time-col">Afternoon</td>
                         <td>Transfer to Dulles (IAD) Airport</td>
-                        <td>Travel to Washington Dulles International Airport.</td>
+                        <td>Silver Line Metro to Dulles Airport.</td>
                         <td><a class="link-btn" href="https://www.flydulles.com/" target="_blank">Dulles Airport</a></td>
-                        <td>Take Silver Line Metro directly to IAD station or taxi/ride-share.</td>
+                        <td>Direct Metro access from D.C. or taxi/ride-share.</td>
                     </tr>
                     <tr>
                         <td class="time-col">Evening</td>
                         <td>Flight Home</td>
-                        <td>Board flight home.</td>
+                        <td>Board flight back home.</td>
                         <td>—</td>
-                        <td>Have flight confirmation ready on phones.</td>
+                        <td>Have flight confirmations ready on phone.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- REMINDERS TAB -->
+    <div id="reminders" class="tab-content">
+        <h2 class="day-title">📋 Advance Bookings & Checklist</h2>
+        <p style="font-size:0.9rem; color:#475569; margin-bottom:16px;">
+            Here is the summary of advance reservations and setup tasks needed before departure:
+        </p>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Item / Booking</th>
+                        <th>Details & Booking Link</th>
+                        <th>Status Checklist</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Flights</strong></td>
+                        <td>Cross-Country Flights</td>
+                        <td>SFO ➔ EWR (Jul 31) & IAD ➔ Home (Aug 9).</td>
+                        <td><span class="status-badge">Confirmed</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Amtrak Trains</strong></td>
+                        <td>Acela NYC ➔ Boston (Aug 3 @ 6:05 PM) & Boston ➔ D.C. (Aug 6)</td>
+                        <td>Pre-book seats via <a class="link-btn" href="https://www.amtrak.com/" target="_blank">Amtrak.com</a>.</td>
+                        <td><span class="status-badge">Action Needed</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>NYC Attractions</strong></td>
+                        <td>Statue of Liberty Ferry</td>
+                        <td>Book Reserve Ferry Tickets in advance via <a class="link-btn" href="https://www.statuecitycruises.com/" target="_blank">Statue City Cruises</a>.</td>
+                        <td><span class="status-badge">Action Needed</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>NYC Attractions</strong></td>
+                        <td>9/11 Memorial & Museum</td>
+                        <td>Reserve timed-entry admission pass online at <a class="link-btn" href="https://www.911memorial.org/" target="_blank">911memorial.org</a>.</td>
+                        <td><span class="status-badge">Action Needed</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>NYC Entertainment</strong></td>
+                        <td>Broadway Show Tickets</td>
+                        <td>Pre-book theater tickets for Broadway performance in advance.</td>
+                        <td><span class="status-badge">Optional</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>D.C. Attractions</strong></td>
+                        <td>National Archives Museum Pass</td>
+                        <td>Reserve $1 timed-entry passes online at <a class="link-btn" href="https://visit.archives.gov/" target="_blank">visit.archives.gov</a> to bypass general lines.</td>
+                        <td><span class="status-badge">Recommended</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>D.C. Attractions</strong></td>
+                        <td>Smithsonian Museums Entry</td>
+                        <td>Natural History & American History are free. Entry at 10 AM opening recommended.</td>
+                        <td><span class="status-badge">No Pass Required</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Transit Setup</strong></td>
+                        <td>Mobile Transit Wallets</td>
+                        <td>
+                            • <strong>NYC:</strong> OMNY Tap-to-Pay (Apple Pay / Google Pay)<br>
+                            • <strong>Boston:</strong> MBTA Contactless / CharlieCard<br>
+                            • <strong>D.C.:</strong> SmarTrip Pass on Mobile Wallet
+                        </td>
+                        <td><span class="status-badge">Phone Setup</span></td>
                     </tr>
                 </tbody>
             </table>
@@ -688,31 +805,29 @@
 
     <script>
         function switchCity(cityCode, defaultDayId, element) {
-            // Activate city tab button
             document.querySelectorAll('.city-tab').forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
 
-            // Show corresponding day pills group
             document.querySelectorAll('.city-days-group').forEach(group => group.classList.remove('active'));
-            const targetGroup = document.getElementById('days-' + cityCode);
-            targetGroup.classList.add('active');
 
-            // Open the first day of that city automatically
-            const firstDayBtn = targetGroup.querySelector('.day-btn');
-            openDay(defaultDayId, firstDayBtn);
+            if (cityCode === 'reminders') {
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                document.getElementById('reminders').classList.add('active');
+            } else {
+                const targetGroup = document.getElementById('days-' + cityCode);
+                if (targetGroup) {
+                    targetGroup.classList.add('active');
+                    const firstDayBtn = targetGroup.querySelector('.day-btn');
+                    openDay(defaultDayId, firstDayBtn);
+                }
+            }
         }
 
         function openDay(dayId, element) {
-            // Hide all day content tabs
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
-
-            // Deactivate all day buttons
             document.querySelectorAll('.day-btn').forEach(btn => btn.classList.remove('active'));
 
-            // Show selected day content
             document.getElementById(dayId).classList.add('active');
-
-            // Activate clicked day button
             if (element) {
                 element.classList.add('active');
             }
