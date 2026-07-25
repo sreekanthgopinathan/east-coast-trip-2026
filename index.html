@@ -20,35 +20,41 @@
             color: var(--text);
             margin: 0;
             padding: 16px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         header {
             text-align: center;
             margin-bottom: 20px;
-            padding: 14px;
-            background: var(--primary);
+            padding: 20px;
+            background: linear-gradient(135deg, #1e3a8a 0%, #0284c7 100%);
             color: white;
-            border-radius: 8px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
         }
 
         header h1 {
             margin: 0 0 6px 0;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
+            letter-spacing: -0.02em;
         }
 
         header p {
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             opacity: 0.9;
+            font-weight: 500;
         }
 
         .city-header {
             font-size: 0.85rem;
-            font-weight: bold;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: #64748b;
-            margin: 14px 0 6px 0;
+            margin: 16px 0 6px 0;
         }
 
         .tab-container {
@@ -61,13 +67,17 @@
         .tab-btn {
             background-color: #e2e8f0;
             border: none;
-            padding: 8px 12px;
+            padding: 8px 14px;
             border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 600;
             cursor: pointer;
             color: var(--text);
             transition: all 0.2s ease;
+        }
+
+        .tab-btn:hover {
+            background-color: #cbd5e1;
         }
 
         .tab-btn.active {
@@ -78,19 +88,30 @@
         .tab-content {
             display: none;
             background: var(--card-bg);
-            padding: 16px;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            margin-top: 10px;
         }
 
         .tab-content.active {
             display: block;
         }
 
+        /* Hero Image Banner */
+        .hero-banner {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
         .day-title {
             margin-top: 0;
             color: var(--primary);
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             border-bottom: 2px solid var(--border);
             padding-bottom: 8px;
         }
@@ -108,7 +129,7 @@
 
         th, td {
             text-align: left;
-            padding: 10px 12px;
+            padding: 12px 14px;
             border-bottom: 1px solid var(--border);
             vertical-align: top;
         }
@@ -121,7 +142,7 @@
         }
 
         .time-col {
-            font-weight: bold;
+            font-weight: 700;
             white-space: nowrap;
             color: var(--accent);
         }
@@ -137,6 +158,12 @@
         }
 
         @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .hero-banner {
+                height: 150px;
+            }
             th, td {
                 font-size: 0.8rem;
                 padding: 8px;
@@ -147,8 +174,8 @@
 <body>
 
     <header>
-        <h1>East Coast Family Vacation 2026</h1>
-        <p>NYC • Boston • Washington D.C.</p>
+        <h1>🗽 East Coast Family Vacation 2026</h1>
+        <p>New York City • Boston • Washington D.C.</p>
     </header>
 
     <!-- Navigation Tabs -->
@@ -176,6 +203,7 @@
 
     <!-- DAY 1 -->
     <div id="day1" class="tab-content active">
+        <img class="hero-banner" src="https://images.unsplash.com/photo-1508964942454-1a56651d54ac?auto=format&fit=crop&w=1200&q=80" alt="Times Square NYC">
         <h2 class="day-title">Day 1: July 31 — Flight Arrival & Theater District</h2>
         <div class="table-responsive">
             <table>
@@ -210,6 +238,7 @@
 
     <!-- DAY 2 -->
     <div id="day2" class="tab-content">
+        <img class="hero-banner" src="https://images.unsplash.com/photo-1605130284535-11dd9edc58e1?auto=format&fit=crop&w=1200&q=80" alt="Statue of Liberty">
         <h2 class="day-title">Day 2: August 1 — Statue of Liberty, Brooklyn Bridge & 5th Ave</h2>
         <div class="table-responsive">
             <table>
@@ -251,6 +280,7 @@
 
     <!-- DAY 3 -->
     <div id="day3" class="tab-content">
+        <img class="hero-banner" src="https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=1200&q=80" alt="Central Park NYC">
         <h2 class="day-title">Day 3: August 2 — High Line, 9/11 Memorial & Central Park</h2>
         <div class="table-responsive">
             <table>
@@ -292,6 +322,7 @@
 
     <!-- DAY 4 -->
     <div id="day4" class="tab-content">
+        <img class="hero-banner" src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1200&q=80" alt="Empire State Building">
         <h2 class="day-title">Day 4: August 3 — NYC Landmarks & Acela Train to Boston</h2>
         <div class="table-responsive">
             <table>
@@ -340,6 +371,7 @@
 
     <!-- DAY 5 -->
     <div id="day5" class="tab-content">
+        <img class="hero-banner" src="https://images.unsplash.com/photo-1506551109886-6101f48c1ab9?auto=format&fit=crop&w=1200&q=80" alt="Boston Skyline">
         <h2 class="day-title">Day 5: August 4 — Freedom Trail & Historic Boston</h2>
         <div class="table-responsive">
             <table>
@@ -388,6 +420,7 @@
 
     <!-- DAY 6 -->
     <div id="day6" class="tab-content">
+        <img class="hero-banner" src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80" alt="Harvard Yard">
         <h2 class="day-title">Day 6: August 5 — Cambridge, Harvard & Back Bay</h2>
         <div class="table-responsive">
             <table>
@@ -436,6 +469,7 @@
 
     <!-- DAY 7 -->
     <div id="day7" class="tab-content">
+        <img class="hero-banner" src="https://images.unsplash.com/photo-1501469537000-84a1415df558?auto=format&fit=crop&w=1200&q=80" alt="Washington DC Capitol">
         <h2 class="day-title">Day 7: August 6 — Boston to Washington D.C. Transfer</h2>
         <div class="table-responsive">
             <table>
@@ -477,6 +511,7 @@
 
     <!-- DAY 8 -->
     <div id="day8" class="tab-content">
+        <img class="hero-banner" src="https://images.unsplash.com/photo-1617581629397-a72507c3de9e?auto=format&fit=crop&w=1200&q=80" alt="Smithsonian Museum">
         <h2 class="day-title">Day 8: August 7 — Natural History & Capital Highlights</h2>
         <div class="table-responsive">
             <table>
@@ -518,6 +553,7 @@
 
     <!-- DAY 9 -->
     <div id="day9" class="tab-content">
+        <img class="hero-banner" src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80" alt="Lincoln Memorial">
         <h2 class="day-title">Day 9: August 8 — American History & Memorials</h2>
         <div class="table-responsive">
             <table>
@@ -559,6 +595,7 @@
 
     <!-- DAY 10 -->
     <div id="day10" class="tab-content">
+        <img class="hero-banner" src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=1200&q=80" alt="Georgetown Washington DC">
         <h2 class="day-title">Day 10: August 9 — Wrap-Up & Flight Home</h2>
         <div class="table-responsive">
             <table>
