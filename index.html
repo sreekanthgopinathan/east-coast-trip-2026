@@ -25,7 +25,7 @@
         header {
             text-align: center;
             margin-bottom: 20px;
-            padding: 12px;
+            padding: 14px;
             background: var(--primary);
             color: white;
             border-radius: 8px;
@@ -42,21 +42,20 @@
             opacity: 0.9;
         }
 
-        /* Nav Tabs */
         .city-header {
             font-size: 0.85rem;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             color: #64748b;
-            margin: 12px 0 6px 0;
+            margin: 14px 0 6px 0;
         }
 
         .tab-container {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .tab-btn {
@@ -76,7 +75,6 @@
             color: white;
         }
 
-        /* Content Sections */
         .tab-content {
             display: none;
             background: var(--card-bg);
@@ -97,7 +95,6 @@
             padding-bottom: 8px;
         }
 
-        /* Table Styling */
         .table-responsive {
             overflow-x: auto;
         }
@@ -157,29 +154,29 @@
     <!-- Navigation Tabs -->
     <div class="city-header">New York City</div>
     <div class="tab-container">
-        <button class="tab-btn active" onclick="openTab('day1')">Day 1 (Jul 31)</button>
-        <button class="tab-btn" onclick="openTab('day2')">Day 2 (Aug 1)</button>
-        <button class="tab-btn" onclick="openTab('day3')">Day 3 (Aug 2)</button>
+        <button class="tab-btn active" onclick="openTab('day1', event)">Day 1 (Jul 31)</button>
+        <button class="tab-btn" onclick="openTab('day2', event)">Day 2 (Aug 1)</button>
+        <button class="tab-btn" onclick="openTab('day3', event)">Day 3 (Aug 2)</button>
+        <button class="tab-btn" onclick="openTab('day4', event)">Day 4 (Aug 3)</button>
     </div>
 
     <div class="city-header">Boston</div>
     <div class="tab-container">
-        <button class="tab-btn" onclick="openTab('day4')">Day 4 (Aug 3)</button>
-        <button class="tab-btn" onclick="openTab('day5')">Day 5 (Aug 4)</button>
-        <button class="tab-btn" onclick="openTab('day6')">Day 6 (Aug 5)</button>
+        <button class="tab-btn" onclick="openTab('day5', event)">Day 5 (Aug 4)</button>
+        <button class="tab-btn" onclick="openTab('day6', event)">Day 6 (Aug 5)</button>
     </div>
 
     <div class="city-header">Washington D.C.</div>
     <div class="tab-container">
-        <button class="tab-btn" onclick="openTab('day7')">Day 7 (Aug 6)</button>
-        <button class="tab-btn" onclick="openTab('day8')">Day 8 (Aug 7)</button>
-        <button class="tab-btn" onclick="openTab('day9')">Day 9 (Aug 8)</button>
-        <button class="tab-btn" onclick="openTab('day10')">Day 10 (Aug 9)</button>
+        <button class="tab-btn" onclick="openTab('day7', event)">Day 7 (Aug 6)</button>
+        <button class="tab-btn" onclick="openTab('day8', event)">Day 8 (Aug 7)</button>
+        <button class="tab-btn" onclick="openTab('day9', event)">Day 9 (Aug 8)</button>
+        <button class="tab-btn" onclick="openTab('day10', event)">Day 10 (Aug 9)</button>
     </div>
 
     <!-- DAY 1 -->
     <div id="day1" class="tab-content active">
-        <h2 class="day-title">Day 1: July 31 — NYC Arrival & Central Park</h2>
+        <h2 class="day-title">Day 1: July 31 — Flight Arrival & Theater District</h2>
         <div class="table-responsive">
             <table>
                 <thead>
@@ -194,24 +191,17 @@
                 <tbody>
                     <tr>
                         <td class="time-col">Afternoon</td>
-                        <td>Hotel Check-in</td>
-                        <td>Check into NYC accommodations & freshen up.</td>
-                        <td>—</td>
-                        <td>Get MetroCards or set up contactless payment (OMNY) on phones.</td>
+                        <td>Flight Arrival & Hotel Check-in</td>
+                        <td>Arrive from SFO into Newark (EWR). Check into Hyatt Place Times Square.</td>
+                        <td><a class="link-btn" href="https://www.hyatt.com/" target="_blank">Hyatt Place</a></td>
+                        <td>Set up OMNY / MetroCards on phones for easy subway transit.</td>
                     </tr>
                     <tr>
-                        <td class="time-col">4:00 PM</td>
-                        <td>Central Park Walk</td>
-                        <td>Relaxed walk around Bethesda Terrace and the Mall.</td>
-                        <td><a class="link-btn" href="https://www.centralparknyc.org/" target="_blank">Central Park</a></td>
-                        <td>Great spot to unwind after traveling. Grab an espresso or gelati nearby.</td>
-                    </tr>
-                    <tr>
-                        <td class="time-col">7:00 PM</td>
-                        <td>Midtown Dinner</td>
-                        <td>Casual evening meal near Times Square / Rockefeller area.</td>
-                        <td>—</td>
-                        <td><strong>Restaurant Suggestion:</strong> Carmine's (Family-style Italian) or Los Tacos No. 1.</td>
+                        <td class="time-col">6:00 PM</td>
+                        <td>Theater District Evening Stroll</td>
+                        <td>Relaxed walk around Times Square, Broadway theater corridor, and nearby avenues.</td>
+                        <td><a class="link-btn" href="https://www.timessquarenyc.org/" target="_blank">Times Square</a></td>
+                        <td>Unwind after cross-country travel. Great neighborhood for a quick casual dinner.</td>
                     </tr>
                 </tbody>
             </table>
@@ -220,7 +210,7 @@
 
     <!-- DAY 2 -->
     <div id="day2" class="tab-content">
-        <h2 class="day-title">Day 2: August 1 — Lower Manhattan & Icons</h2>
+        <h2 class="day-title">Day 2: August 1 — Statue of Liberty, Brooklyn Bridge & 5th Ave</h2>
         <div class="table-responsive">
             <table>
                 <thead>
@@ -235,31 +225,24 @@
                 <tbody>
                     <tr>
                         <td class="time-col">9:00 AM</td>
-                        <td>Statue of Liberty & Ellis Island</td>
-                        <td>Ferry ride and landmark exploration.</td>
+                        <td>Statue of Liberty Ferry</td>
+                        <td>Morning ferry ride from Battery Park out to Liberty & Ellis Islands.</td>
                         <td><a class="link-btn" href="https://www.statuecitycruises.com/" target="_blank">Statue City Cruises</a></td>
-                        <td>Book reserve ferry tickets in advance to skip general lines. Depart from Battery Park.</td>
+                        <td>Reserve tickets early. Take subway down to South Ferry / Bowling Green.</td>
                     </tr>
                     <tr>
                         <td class="time-col">1:30 PM</td>
-                        <td>Financial District & Wall St</td>
-                        <td>Walk by the Charging Bull, NYSE, and 9/11 Memorial plaza.</td>
-                        <td><a class="link-btn" href="https://www.911memorial.org/" target="_blank">9/11 Memorial</a></td>
-                        <td>Lunch near Trinity Church area or Westfield World Trade Center food hall.</td>
-                    </tr>
-                    <tr>
-                        <td class="time-col">5:00 PM</td>
                         <td>Brooklyn Bridge Walk</td>
-                        <td>Walk across the pedestrian path from Manhattan into Brooklyn.</td>
+                        <td>Pedestrian walk across the historic Brooklyn Bridge.</td>
                         <td><a class="link-btn" href="https://www.nyc.gov/html/dot/html/infrastructure/brooklyn-bridge.shtml" target="_blank">NYC DOT</a></td>
-                        <td>Golden hour views back toward the Manhattan skyline.</td>
+                        <td>Walk from Manhattan toward Brooklyn for iconic city skyline views.</td>
                     </tr>
                     <tr>
-                        <td class="time-col">7:00 PM</td>
-                        <td>DUMBO Evening</td>
-                        <td>Explore DUMBO waterfront and dinner.</td>
-                        <td>—</td>
-                        <td><strong>Dinner:</strong> Julian's or Grimaldi's Pizza in DUMBO; ice cream at Brooklyn Ice Cream Factory.</td>
+                        <td class="time-col">5:30 PM</td>
+                        <td>5th Avenue Evening Stroll</td>
+                        <td>Walk along 5th Avenue past Rockefeller Center & St. Patrick's Cathedral.</td>
+                        <td><a class="link-btn" href="https://www.rockefellercenter.com/" target="_blank">Rockefeller Center</a></td>
+                        <td>Great evening atmosphere with plenty of dinner options nearby in Midtown.</td>
                     </tr>
                 </tbody>
             </table>
@@ -268,7 +251,7 @@
 
     <!-- DAY 3 -->
     <div id="day3" class="tab-content">
-        <h2 class="day-title">Day 3: August 2 — High Line, Chelsea & Broadway</h2>
+        <h2 class="day-title">Day 3: August 2 — High Line, 9/11 Memorial & Central Park</h2>
         <div class="table-responsive">
             <table>
                 <thead>
@@ -283,31 +266,24 @@
                 <tbody>
                     <tr>
                         <td class="time-col">9:30 AM</td>
-                        <td>The High Line</td>
-                        <td>Stroll along the elevated park built on historic rail lines.</td>
+                        <td>The High Line Walk</td>
+                        <td>Elevated park walk starting near Hudson Yards heading south through Chelsea.</td>
                         <td><a class="link-btn" href="https://www.thehighline.org/" target="_blank">The High Line</a></td>
-                        <td>Start at Hudson Yards / Vessel and walk south toward Chelsea.</td>
+                        <td>Grab coffee and light morning snacks at Chelsea Market along the route.</td>
                     </tr>
                     <tr>
-                        <td class="time-col">11:30 AM</td>
-                        <td>Chelsea Market</td>
-                        <td>Explore food hall and artisan shops.</td>
-                        <td><a class="link-btn" href="https://www.chelseamarket.com/" target="_blank">Chelsea Market</a></td>
-                        <td>Great lunch spot with tons of family options (tacos, seafood, bakeries).</td>
+                        <td class="time-col">1:30 PM</td>
+                        <td>9/11 Memorial & Museum</td>
+                        <td>Visit the Reflecting Pools and World Trade Center Plaza museum exhibit.</td>
+                        <td><a class="link-btn" href="https://www.911memorial.org/" target="_blank">9/11 Memorial</a></td>
+                        <td>Reserve timed museum admission tickets in advance.</td>
                     </tr>
                     <tr>
-                        <td class="time-col">3:00 PM</td>
-                        <td>Midtown & Fifth Ave</td>
-                        <td>St. Patrick's Cathedral, Rockefeller Center walk.</td>
-                        <td>—</td>
-                        <td>Rest up before the evening show.</td>
-                    </tr>
-                    <tr>
-                        <td class="time-col">7:00 PM</td>
-                        <td>Broadway Show & Times Square</td>
-                        <td>Evening theater performance and night lights.</td>
-                        <td><a class="link-btn" href="https://www.broadway.org/" target="_blank">Broadway.org</a></td>
-                        <td>Book tickets early. Experience Times Square lights right after the show.</td>
+                        <td class="time-col">5:00 PM</td>
+                        <td>Central Park Relaxation</td>
+                        <td>Late afternoon stroll through Central Park (Bethesda Terrace & The Mall).</td>
+                        <td><a class="link-btn" href="https://www.centralparknyc.org/" target="_blank">Central Park</a></td>
+                        <td>Perfect place to relax before an evening family dinner.</td>
                     </tr>
                 </tbody>
             </table>
@@ -316,7 +292,7 @@
 
     <!-- DAY 4 -->
     <div id="day4" class="tab-content">
-        <h2 class="day-title">Day 4: August 3 — NYC to Boston Transfer</h2>
+        <h2 class="day-title">Day 4: August 3 — NYC Landmarks & Acela Train to Boston</h2>
         <div class="table-responsive">
             <table>
                 <thead>
@@ -330,32 +306,32 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="time-col">Morning</td>
-                        <td>Amtrak Regional / Acela</td>
-                        <td>Train trip from Moynihan Train Hall (NYC) to South Station (Boston).</td>
+                        <td class="time-col">10:00 AM</td>
+                        <td>Empire State Building & Top of the Rock</td>
+                        <td>Midtown landmark views and photo opportunities.</td>
+                        <td><a class="link-btn" href="https://www.esbnyc.com/" target="_blank">Empire State Bldg</a></td>
+                        <td>Check out of hotel, leave luggage at front desk or store near Moynihan Hall.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">1:00 PM</td>
+                        <td>Bryant Park & Midtown Lunch</td>
+                        <td>Relax in Bryant Park and explore the NY Public Library Main Branch.</td>
+                        <td><a class="link-btn" href="https://bryantpark.org/" target="_blank">Bryant Park</a></td>
+                        <td>Casual lunch around the park before retrieving bags.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">5:15 PM</td>
+                        <td>Moynihan Train Hall Arrival</td>
+                        <td>Head to Penn Station / Moynihan Train Hall for train boarding.</td>
                         <td><a class="link-btn" href="https://www.amtrak.com/" target="_blank">Amtrak</a></td>
-                        <td>~4 hour scenic train ride. Arrive early at Penn Station / Moynihan Train Hall.</td>
+                        <td>Arrive early to grab seats together and onboard snacks.</td>
                     </tr>
                     <tr>
-                        <td class="time-col">2:00 PM</td>
-                        <td>Hotel Check-in (Boston)</td>
-                        <td>Drop luggage and get settled in Boston.</td>
-                        <td>—</td>
-                        <td>Pick up CharlieCards or use contactless fare for the MBTA Subway (T).</td>
-                    </tr>
-                    <tr>
-                        <td class="time-col">4:30 PM</td>
-                        <td>Boston Common & Public Garden</td>
-                        <td>Stroll through America's oldest public park and see the Swan Boats.</td>
-                        <td><a class="link-btn" href="https://www.boston.gov/parks/boston-common" target="_blank">Boston Parks</a></td>
-                        <td>Relaxed walk after the morning train ride.</td>
-                    </tr>
-                    <tr>
-                        <td class="time-col">6:30 PM</td>
-                        <td>North End Dinner</td>
-                        <td>Explore Boston's historic Italian neighborhood.</td>
-                        <td>—</td>
-                        <td><strong>Food Notes:</strong> Dinner in the North End followed by cannolis from Mike's Pastry or Modern Pastry.</td>
+                        <td class="time-col">6:05 PM</td>
+                        <td>Amtrak Acela to Boston</td>
+                        <td>Evening high-speed train departure to Boston South Station.</td>
+                        <td><a class="link-btn" href="https://www.amtrak.com/acela-train" target="_blank">Acela Express</a></td>
+                        <td>Arrive in Boston late evening; check into Boston hotel.</td>
                     </tr>
                 </tbody>
             </table>
@@ -364,7 +340,7 @@
 
     <!-- DAY 5 -->
     <div id="day5" class="tab-content">
-        <h2 class="day-title">Day 5: August 4 — Freedom Trail & Maritime History</h2>
+        <h2 class="day-title">Day 5: August 4 — Freedom Trail & Historic Boston</h2>
         <div class="table-responsive">
             <table>
                 <thead>
@@ -380,30 +356,30 @@
                     <tr>
                         <td class="time-col">9:00 AM</td>
                         <td>Freedom Trail Walking Tour</td>
-                        <td>Walk the 2.5-mile red brick trail covering 16 historical sites.</td>
+                        <td>Walk the 2.5-mile historic trail (Boston Common, Granary Burying Ground, Paul Revere House).</td>
                         <td><a class="link-btn" href="https://www.thefreedomtrail.org/" target="_blank">Freedom Trail</a></td>
-                        <td>Wear good walking shoes! Key stops: Granary Burying Ground, Old State House, Paul Revere House.</td>
+                        <td>Wear comfortable walking shoes.</td>
                     </tr>
                     <tr>
                         <td class="time-col">12:30 PM</td>
                         <td>Faneuil Hall & Quincy Market</td>
-                        <td>Lunch stop inside historic food hall.</td>
+                        <td>Lunch inside the historic market hall.</td>
                         <td><a class="link-btn" href="https://faneuilhallmarket.com/" target="_blank">Faneuil Hall</a></td>
-                        <td>Famous spot for Boston chowder served in bread bowls.</td>
+                        <td>Great place for New England clam chowder.</td>
                     </tr>
                     <tr>
                         <td class="time-col">2:30 PM</td>
                         <td>USS Constitution & Charlestown</td>
-                        <td>Visit "Old Ironsides" in the historic Navy Yard.</td>
+                        <td>Tour "Old Ironsides" in the Navy Yard.</td>
                         <td><a class="link-btn" href="https://www.navy.mil/USS-Constitution/" target="_blank">USS Constitution</a></td>
-                        <td>Valid government ID required for adults to board the active navy vessel.</td>
+                        <td>Government ID required for adults to board the active navy ship.</td>
                     </tr>
                     <tr>
                         <td class="time-col">6:30 PM</td>
-                        <td>Seaport District Dinner</td>
-                        <td>Waterfront dining and stroll.</td>
+                        <td>North End Dinner</td>
+                        <td>Dinner in Boston's historic Italian quarter.</td>
                         <td>—</td>
-                        <td>Modern harbor views and fresh seafood along the harbor walk.</td>
+                        <td>Follow up dinner with cannolis at Mike's Pastry or Modern Pastry.</td>
                     </tr>
                 </tbody>
             </table>
@@ -427,24 +403,31 @@
                 <tbody>
                     <tr>
                         <td class="time-col">9:30 AM</td>
-                        <td>Harvard University Yard</td>
-                        <td>Explore Harvard Yard and Harvard Square in Cambridge.</td>
+                        <td>Harvard University & Yard</td>
+                        <td>Self-guided walk around Harvard Yard and Harvard Square in Cambridge.</td>
                         <td><a class="link-btn" href="https://www.harvard.edu/visit/" target="_blank">Harvard Visiting</a></td>
-                        <td>Take the Red Line T to Harvard Station. Rub John Harvard's shoe for luck!</td>
+                        <td>Take the MBTA Red Line to Harvard Station.</td>
                     </tr>
                     <tr>
                         <td class="time-col">12:00 PM</td>
-                        <td>MIT & Charles River Walk</td>
-                        <td>Self-guided walk around MIT campus and river views.</td>
+                        <td>MIT & Charles River Waterfront</td>
+                        <td>Explore MIT campus grounds and scenic Charles River views.</td>
                         <td><a class="link-btn" href="https://www.mit.edu/" target="_blank">MIT</a></td>
-                        <td>Great views of the Boston skyline across the river.</td>
+                        <td>Panoramas of the Boston skyline across the river.</td>
                     </tr>
                     <tr>
                         <td class="time-col">3:00 PM</td>
                         <td>Back Bay & Newbury Street</td>
-                        <td>Architecture, brownstones, and shopping.</td>
+                        <td>Stroll Newbury Street, Copley Square, and Boston Public Library.</td>
                         <td>—</td>
-                        <td>Walk Newbury Street and see Copley Square & Boston Public Library.</td>
+                        <td>Historic brownstones and shopping.</td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">6:30 PM</td>
+                        <td>Seaport District Dinner</td>
+                        <td>Waterfront dining and harbour walk stroll.</td>
+                        <td>—</td>
+                        <td>Fresh seafood along the Boston harbor.</td>
                     </tr>
                 </tbody>
             </table>
@@ -468,24 +451,24 @@
                 <tbody>
                     <tr>
                         <td class="time-col">Morning</td>
-                        <td>Amtrak to Washington D.C.</td>
-                        <td>Train trip from Boston South Station to D.C. Union Station.</td>
+                        <td>Amtrak Train to D.C.</td>
+                        <td>Scenic train trip from Boston South Station to D.C. Union Station.</td>
                         <td><a class="link-btn" href="https://www.amtrak.com/" target="_blank">Amtrak</a></td>
-                        <td>Enjoy the coastal Northeast Corridor views. Union Station is right in D.C.</td>
+                        <td>Arrive right at D.C. Union Station near the Capitol.</td>
                     </tr>
                     <tr>
                         <td class="time-col">3:30 PM</td>
-                        <td>Hotel Check-in (D.C.)</td>
-                        <td>Unpack and recharge.</td>
+                        <td>D.C. Hotel Check-in</td>
+                        <td>Check in, unpack, and recharge.</td>
                         <td>—</td>
-                        <td>Get SmarTrip cards or tap-to-pay set up for the D.C. Metro.</td>
+                        <td>Set up SmarTrip cards or mobile payment for D.C. Metro.</td>
                     </tr>
                     <tr>
                         <td class="time-col">6:00 PM</td>
                         <td>National Mall Sunset Stroll</td>
-                        <td>Evening stroll near the Capitol and Washington Monument.</td>
+                        <td>Evening stroll around Capitol grounds and Washington Monument.</td>
                         <td><a class="link-btn" href="https://www.nps.gov/nama/index.htm" target="_blank">National Mall NPS</a></td>
-                        <td>D.C. monuments look incredible as twilight sets in and crowds thin out.</td>
+                        <td>Monuments look fantastic illuminated at dusk.</td>
                     </tr>
                 </tbody>
             </table>
@@ -510,23 +493,23 @@
                     <tr>
                         <td class="time-col">10:00 AM</td>
                         <td>Smithsonian National Museum of Natural History</td>
-                        <td>Hope Diamond, Ocean Hall, Dinosaur exhibits.</td>
+                        <td>Hope Diamond, Ocean Hall, Dinosaur hall.</td>
                         <td><a class="link-btn" href="https://naturalhistory.si.edu/" target="_blank">Natural History</a></td>
-                        <td>Free admission. Plan for ~2.5–3 hours. Enter early right at opening.</td>
+                        <td>Free entry. Arrive right at opening to avoid queues.</td>
                     </tr>
                     <tr>
                         <td class="time-col">1:30 PM</td>
-                        <td>Lunch & National Archives</td>
-                        <td>See Declaration of Independence & Constitution.</td>
+                        <td>National Archives</td>
+                        <td>See the Declaration of Independence, Constitution, and Bill of Rights.</td>
                         <td><a class="link-btn" href="https://www.archives.gov/" target="_blank">National Archives</a></td>
-                        <td>Timed entry tickets recommended to skip lines. Nearby food along Pennsylvania Ave.</td>
+                        <td>Timed entry pass recommended. Lunch along Pennsylvania Ave.</td>
                     </tr>
                     <tr>
                         <td class="time-col">4:30 PM</td>
-                        <td>U.S. Capitol Exterior & Grounds</td>
-                        <td>Walk around the Capitol Plaza and Library of Congress exterior.</td>
+                        <td>U.S. Capitol Grounds</td>
+                        <td>Walk around Capitol Plaza and Reflecting Pool plaza.</td>
                         <td><a class="link-btn" href="https://www.visitthecapitol.gov/" target="_blank">Capitol Visitor Center</a></td>
-                        <td>Great photo opportunities from the Capitol Reflecting Pool.</td>
+                        <td>Great location for family photos.</td>
                     </tr>
                 </tbody>
             </table>
@@ -551,23 +534,23 @@
                     <tr>
                         <td class="time-col">10:00 AM</td>
                         <td>Smithsonian National Museum of American History</td>
-                        <td>Star-Spangled Banner, First Ladies gowns, history of innovation.</td>
+                        <td>Star-Spangled Banner, First Ladies exhibit, history of American innovation.</td>
                         <td><a class="link-btn" href="https://americanhistory.si.edu/" target="_blank">American History</a></td>
-                        <td>Free admission. Features iconic Americana exhibits.</td>
+                        <td>Free entry. Plan for ~2.5 to 3 hours.</td>
                     </tr>
                     <tr>
                         <td class="time-col">2:00 PM</td>
                         <td>Lincoln Memorial & Reflecting Pool</td>
-                        <td>Visit Lincoln, Vietnam Veterans, and Korean War Memorials.</td>
+                        <td>Visit Lincoln Memorial, World War II Memorial, and Vietnam Veterans Memorial.</td>
                         <td><a class="link-btn" href="https://www.nps.gov/linc/index.htm" target="_blank">Lincoln Memorial</a></td>
-                        <td>Bring water bottles—it gets warm walking across the open Mall space.</td>
+                        <td>Bring reusable water bottles for walking the Mall.</td>
                     </tr>
                     <tr>
                         <td class="time-col">6:30 PM</td>
                         <td>Georgetown Waterfront Dinner</td>
-                        <td>Historic neighborhood walk and riverfront dining.</td>
+                        <td>Stroll historic M Street and dinner along the Potomac riverfront.</td>
                         <td>—</td>
-                        <td>Great restaurants along the Potomac River. Stroll down M Street.</td>
+                        <td>Scenic riverside restaurants.</td>
                     </tr>
                 </tbody>
             </table>
@@ -576,7 +559,7 @@
 
     <!-- DAY 10 -->
     <div id="day10" class="tab-content">
-        <h2 class="day-title">Day 10: August 9 — Wrap-Up & Departure</h2>
+        <h2 class="day-title">Day 10: August 9 — Wrap-Up & Flight Home</h2>
         <div class="table-responsive">
             <table>
                 <thead>
@@ -591,24 +574,24 @@
                 <tbody>
                     <tr>
                         <td class="time-col">Morning</td>
-                        <td>Georgetown / City Stroll</td>
-                        <td>Souvenir shopping, coffee, relaxed final morning walk.</td>
+                        <td>Georgetown Morning Stroll</td>
+                        <td>Coffee, relaxed final morning walk, and hotel check-out.</td>
                         <td>—</td>
-                        <td>Check out of hotel and store bags if needed.</td>
+                        <td>Leave bags stored at hotel concierge.</td>
                     </tr>
                     <tr>
                         <td class="time-col">Afternoon</td>
                         <td>Transfer to Dulles (IAD) Airport</td>
                         <td>Travel to Washington Dulles International Airport.</td>
                         <td><a class="link-btn" href="https://www.flydulles.com/" target="_blank">Dulles Airport</a></td>
-                        <td>Take the Silver Line Metro directly to IAD station or book a taxi/ride-share. Allow extra time during peak hours.</td>
+                        <td>Take Silver Line Metro directly to IAD station or taxi/ride-share.</td>
                     </tr>
                     <tr>
                         <td class="time-col">Evening</td>
                         <td>Flight Home</td>
-                        <td>Board flight and head home.</td>
+                        <td>Board flight home.</td>
                         <td>—</td>
-                        <td>Have flight confirmation details handy on phone.</td>
+                        <td>Have flight confirmation ready on phones.</td>
                     </tr>
                 </tbody>
             </table>
@@ -616,20 +599,17 @@
     </div>
 
     <script>
-        function openTab(tabId) {
-            // Hide all tab contents
+        function openTab(tabId, evt) {
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
 
-            // Deactivate all buttons
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
 
-            // Show selected tab
             document.getElementById(tabId).classList.add('active');
-
-            // Set current button active
-            event.currentTarget.classList.add('active');
+            if (evt) {
+                evt.currentTarget.classList.add('active');
+            }
         }
     </script>
 </body>
