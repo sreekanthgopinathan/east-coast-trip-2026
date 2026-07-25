@@ -49,7 +49,6 @@
             font-weight: 500;
         }
 
-        /* Nav Container */
         .nav-wrapper {
             background: var(--card-bg);
             padding: 12px;
@@ -58,7 +57,6 @@
             margin-bottom: 20px;
         }
 
-        /* Tier 1: Selector */
         .city-selector {
             display: flex;
             gap: 6px;
@@ -90,7 +88,6 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        /* Tier 2: Day Pills */
         .city-days-group {
             display: none;
             flex-wrap: wrap;
@@ -123,7 +120,6 @@
             color: white;
         }
 
-        /* Card Content */
         .tab-content {
             display: none;
             background: var(--card-bg);
@@ -195,7 +191,17 @@
             margin-bottom: 4px;
         }
 
-        .status-badge {
+        .status-badge-green {
+            display: inline-block;
+            background-color: #dcfce7;
+            color: #15803d;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+
+        .status-badge-amber {
             display: inline-block;
             background-color: #fef3c7;
             color: #b45309;
@@ -246,7 +252,6 @@
 
     <!-- Top Navigation -->
     <div class="nav-wrapper">
-        <!-- City & Section Selector -->
         <div class="city-selector">
             <button class="city-tab active" onclick="switchCity('nyc', 'day1', this)">🗽 New York City</button>
             <button class="city-tab" onclick="switchCity('boston', 'day5', this)">⛵ Boston</button>
@@ -289,16 +294,19 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Vegetarian Dining & Logistics</th>
+                        <th>Vegetarian Dining & Travel Details</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="time-col">Afternoon</td>
-                        <td>Flight Arrival & Hotel Check-in</td>
-                        <td>Arrive from SFO into Newark (EWR). Check into Hyatt Place Times Square.</td>
-                        <td><a class="link-btn" href="https://www.hyatt.com/" target="_blank">Hyatt Place</a></td>
-                        <td>Set up OMNY on mobile wallet for subway tap-and-go.</td>
+                        <td class="time-col">6:10 AM Flight</td>
+                        <td>United UA419 (SFO ➔ EWR)</td>
+                        <td>Flight from San Francisco to Newark. Confirmation: <strong>GMEV1W</strong>.</td>
+                        <td><a class="link-btn" href="https://www.united.com/" target="_blank">United Airlines</a></td>
+                        <td>
+                            <strong>Seats:</strong> 40D, 40E, 40F<br>
+                            Arrive in EWR, head to Hyatt Place Times Square for check-in.
+                        </td>
                     </tr>
                     <tr>
                         <td class="time-col">6:00 PM</td>
@@ -307,7 +315,7 @@
                         <td><a class="link-btn" href="https://www.timessquarenyc.org/" target="_blank">Times Square</a></td>
                         <td>
                             <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
-                            <strong>PS Kitchen</strong> (100% plant-based artisanal dining in Theater District) or <strong>Saravanaa Bhavan</strong> (authentic South Indian vegetarian nearby).
+                            <strong>PS Kitchen</strong> (100% plant-based in Theater District) or <strong>Saravanaa Bhavan</strong> (South Indian vegetarian).
                         </td>
                     </tr>
                 </tbody>
@@ -327,7 +335,7 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Vegetarian Dining & Logistics</th>
+                        <th>Vegetarian Dining & Travel Details</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -345,7 +353,7 @@
                         <td><a class="link-btn" href="https://www.nyc.gov/html/dot/html/infrastructure/brooklyn-bridge.shtml" target="_blank">NYC DOT</a></td>
                         <td>
                             <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
-                            Lunch at <strong>Jajaja Plantas Mexicana</strong> (100% plant-based Mexican in FiDi) or vegetarian brick-oven pizza in DUMBO at <strong>Sottocasa</strong>.
+                            Lunch at <strong>Jajaja Plantas Mexicana</strong> (100% plant-based) or vegetarian pizza at <strong>Sottocasa</strong>.
                         </td>
                     </tr>
                     <tr>
@@ -372,7 +380,7 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Vegetarian Dining & Logistics</th>
+                        <th>Vegetarian Dining & Travel Details</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -383,7 +391,7 @@
                         <td><a class="link-btn" href="https://www.thehighline.org/" target="_blank">The High Line</a></td>
                         <td>
                             <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
-                            Grab plant-based sushi at <strong>Beyond Sushi</strong> or hand-pulled veg noodles at <strong>Very Fresh Noodles</strong> in Chelsea Market.
+                            Plant-based sushi at <strong>Beyond Sushi</strong> or hand-pulled veg noodles at <strong>Very Fresh Noodles</strong>.
                         </td>
                     </tr>
                     <tr>
@@ -400,7 +408,7 @@
                         <td><a class="link-btn" href="https://www.centralparknyc.org/" target="_blank">Central Park</a></td>
                         <td>
                             <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
-                            Dinner at <strong>PLANTA Queen</strong> (NoMad - Asian plant-based) or <strong>Ananda</strong>.
+                            Dinner at <strong>PLANTA Queen</strong> (Asian plant-based) or <strong>Ananda</strong>.
                         </td>
                     </tr>
                 </tbody>
@@ -420,7 +428,7 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Vegetarian Dining & Logistics</th>
+                        <th>Vegetarian Dining & Travel Details</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -438,15 +446,18 @@
                         <td><a class="link-btn" href="https://bryantpark.org/" target="_blank">Bryant Park</a></td>
                         <td>
                             <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
-                            Grab lunch at <strong>Beatnic</strong> (vegan burgers/salads) or <strong>UrbanSpace Food Hall</strong> near Bryant Park.
+                            Grab lunch at <strong>Beatnic</strong> (vegan burgers/salads) or <strong>UrbanSpace Food Hall</strong>.
                         </td>
                     </tr>
                     <tr>
-                        <td class="time-col">6:05 PM</td>
-                        <td>Amtrak Acela to Boston</td>
-                        <td>Train departure from Moynihan Train Hall to Boston.</td>
+                        <td class="time-col">6:05 PM - 9:50 PM</td>
+                        <td>Amtrak Acela #2160 (NYC ➔ Boston)</td>
+                        <td>Train from Moynihan Train Hall to Boston Back Bay Station.</td>
                         <td><a class="link-btn" href="https://www.amtrak.com/acela-train" target="_blank">Acela Express</a></td>
-                        <td>Arrive at station by 5:15 PM for boarding. Check into Boston hotel late evening.</td>
+                        <td>
+                            <strong>Car & Seats:</strong> Quiet Car (Car 9) • Seats 7C, 7D, 8C<br>
+                            Arrive at Moynihan Hall by 5:20 PM.
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -465,7 +476,7 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Vegetarian Dining & Logistics</th>
+                        <th>Vegetarian Dining & Travel Details</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -483,7 +494,7 @@
                         <td><a class="link-btn" href="https://faneuilhallmarket.com/" target="_blank">Faneuil Hall</a></td>
                         <td>
                             <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
-                            Try <strong>Clover Food Lab</strong> (famous local farm-to-table vegetarian chain) or Boston vegetarian chowder.
+                            Try <strong>Clover Food Lab</strong> (farm-to-table vegetarian) or Boston vegetarian chowder.
                         </td>
                     </tr>
                     <tr>
@@ -500,7 +511,7 @@
                         <td>—</td>
                         <td>
                             <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
-                            Dinner at <strong>Terramia</strong> or <strong>Rina's Pizzeria</strong> (excellent vegetarian eggplant & pasta dishes), followed by cannolis at Modern Pastry.
+                            Dinner at <strong>Terramia</strong> or <strong>Rina's Pizzeria</strong>, followed by cannolis at Modern Pastry.
                         </td>
                     </tr>
                 </tbody>
@@ -520,7 +531,7 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Vegetarian Dining & Logistics</th>
+                        <th>Vegetarian Dining & Travel Details</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -538,7 +549,7 @@
                         <td><a class="link-btn" href="https://www.mit.edu/" target="_blank">MIT</a></td>
                         <td>
                             <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
-                            Lunch at <strong>Veggie Galaxy</strong> (classic Cambridge diner with 100% vegetarian menu) or <strong>Life Alive Organic Cafe</strong>.
+                            Lunch at <strong>Veggie Galaxy</strong> (100% vegetarian diner) or <strong>Life Alive Organic Cafe</strong>.
                         </td>
                     </tr>
                     <tr>
@@ -565,16 +576,19 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Vegetarian Dining & Logistics</th>
+                        <th>Vegetarian Dining & Travel Details</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="time-col">Morning</td>
-                        <td>Amtrak Train to D.C.</td>
-                        <td>Train journey from South Station to Union Station.</td>
+                        <td class="time-col">7:00 AM Train</td>
+                        <td>Amtrak Acela #2155 (Boston ➔ D.C.)</td>
+                        <td>Train from Boston South Station to D.C. Union Station. Confirmation: <strong>8DAD5E</strong>.</td>
                         <td><a class="link-btn" href="https://www.amtrak.com/" target="_blank">Amtrak</a></td>
-                        <td>Arrive at Union Station near Capitol. Check into D.C. hotel.</td>
+                        <td>
+                            <strong>Car & Seats:</strong> Business Class (Car 8) • Seats 5C, 5D, 6C<br>
+                            Check into D.C. hotel upon arrival in the afternoon.
+                        </td>
                     </tr>
                     <tr>
                         <td class="time-col">6:00 PM</td>
@@ -583,7 +597,7 @@
                         <td><a class="link-btn" href="https://www.nps.gov/nama/index.htm" target="_blank">National Mall NPS</a></td>
                         <td>
                             <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
-                            Dinner at <strong>Shouk</strong> (100% plant-based Middle Eastern street food) or <strong>RASA</strong> (fast-casual Indian vegetarian bowls).
+                            Dinner at <strong>Shouk</strong> (100% plant-based Middle Eastern) or <strong>RASA</strong> (Indian vegetarian bowls).
                         </td>
                     </tr>
                 </tbody>
@@ -603,7 +617,7 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Vegetarian Dining & Logistics</th>
+                        <th>Vegetarian Dining & Travel Details</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -621,7 +635,7 @@
                         <td><a class="link-btn" href="https://www.archives.gov/" target="_blank">National Archives</a></td>
                         <td>
                             <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
-                            Grab lunch at <strong>Falafel Inc</strong> (fresh falafel & hummus) along Pennsylvania Ave. Reserve $1 timed pass in advance.
+                            Lunch at <strong>Falafel Inc</strong> along Pennsylvania Ave. Reserve $1 timed pass in advance.
                         </td>
                     </tr>
                     <tr>
@@ -631,7 +645,7 @@
                         <td><a class="link-btn" href="https://www.visitthecapitol.gov/" target="_blank">Capitol Visitor Center</a></td>
                         <td>
                             <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
-                            Dinner at <strong>Rasika</strong> (upscale Indian with extensive vegetarian dishes).
+                            Dinner at <strong>Rasika</strong> (upscale Indian with extensive vegetarian options).
                         </td>
                     </tr>
                 </tbody>
@@ -651,7 +665,7 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Vegetarian Dining & Logistics</th>
+                        <th>Vegetarian Dining & Travel Details</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -667,7 +681,7 @@
                         <td>Lincoln Memorial & Reflecting Pool</td>
                         <td>Lincoln, WWII, and Vietnam Memorials.</td>
                         <td><a class="link-btn" href="https://www.nps.gov/linc/index.htm" target="_blank">Lincoln Memorial</a></td>
-                        <td>Bring water bottles for open outdoor walking.</td>
+                        <td>Bring water bottles for outdoor walking.</td>
                     </tr>
                     <tr>
                         <td class="time-col">6:30 PM</td>
@@ -676,7 +690,7 @@
                         <td>—</td>
                         <td>
                             <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
-                            Dinner at <strong>Chaia Tacos</strong> (100% plant-based artisanal tacos in historic Georgetown canal building).
+                            Dinner at <strong>Chaia Tacos</strong> (100% plant-based tacos in historic Georgetown).
                         </td>
                     </tr>
                 </tbody>
@@ -696,7 +710,7 @@
                         <th>Attraction</th>
                         <th>Activity Summary</th>
                         <th>Website</th>
-                        <th>Vegetarian Dining & Logistics</th>
+                        <th>Vegetarian Dining & Travel Details</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -707,22 +721,18 @@
                         <td>—</td>
                         <td>
                             <span class="veg-tag">🌱 Vegetarian Friendly</span><br>
-                            Coffee & breakfast at <strong>Call Your Mother Deli</strong> (veg bagel sandwiches) or <strong>Tatte Bakery</strong>.
+                            Coffee & breakfast at <strong>Call Your Mother Deli</strong> or <strong>Tatte Bakery</strong>.
                         </td>
                     </tr>
                     <tr>
-                        <td class="time-col">Afternoon</td>
-                        <td>Transfer to Dulles (IAD) Airport</td>
-                        <td>Silver Line Metro to Dulles Airport.</td>
+                        <td class="time-col">8:35 AM Flight</td>
+                        <td>United UA1147 (IAD ➔ SFO)</td>
+                        <td>Return flight from Washington Dulles to SFO. Confirmation: <strong>GMK4ZE</strong>.</td>
                         <td><a class="link-btn" href="https://www.flydulles.com/" target="_blank">Dulles Airport</a></td>
-                        <td>Direct Metro access from D.C. or taxi/ride-share.</td>
-                    </tr>
-                    <tr>
-                        <td class="time-col">Evening</td>
-                        <td>Flight Home</td>
-                        <td>Board flight back home.</td>
-                        <td>—</td>
-                        <td>Have flight confirmations ready on phone.</td>
+                        <td>
+                            <strong>Seats:</strong> 45C, 45D, 45E<br>
+                            Take Silver Line Metro directly to IAD station or taxi.
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -731,72 +741,78 @@
 
     <!-- REMINDERS TAB -->
     <div id="reminders" class="tab-content">
-        <h2 class="day-title">📋 Advance Bookings & Checklist</h2>
+        <h2 class="day-title">📋 Reservations, Flight & Train Tickets</h2>
         <p style="font-size:0.9rem; color:#475569; margin-bottom:16px;">
-            Here is the summary of advance reservations and setup tasks needed before departure:
+            Complete list of confirmed travel bookings and remaining tickets needed:
         </p>
         <div class="table-responsive">
             <table>
                 <thead>
                     <tr>
                         <th>Category</th>
-                        <th>Item / Booking</th>
-                        <th>Details & Booking Link</th>
-                        <th>Status Checklist</th>
+                        <th>Booking / Route</th>
+                        <th>Details, Times & Seats</th>
+                        <th>Status / Confirmation</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Flights</strong></td>
-                        <td>Cross-Country Flights</td>
-                        <td>SFO ➔ EWR (Jul 31) & IAD ➔ Home (Aug 9).</td>
-                        <td><span class="status-badge">Confirmed</span></td>
+                        <td><strong>Flight 1</strong></td>
+                        <td>United UA419 (SFO ➔ EWR)<br><small>Jul 31 @ 6:10 AM</small></td>
+                        <td>Departs SFO 6:10 AM ➔ Arrives EWR.<br><strong>Seats:</strong> 40D, 40E, 40F</td>
+                        <td><span class="status-badge-green">Confirmed (GMEV1W)</span></td>
                     </tr>
                     <tr>
-                        <td><strong>Amtrak Trains</strong></td>
-                        <td>Acela NYC ➔ Boston (Aug 3 @ 6:05 PM) & Boston ➔ D.C. (Aug 6)</td>
-                        <td>Pre-book seats via <a class="link-btn" href="https://www.amtrak.com/" target="_blank">Amtrak.com</a>.</td>
-                        <td><span class="status-badge">Action Needed</span></td>
+                        <td><strong>Amtrak 1</strong></td>
+                        <td>Acela #2160 (NYC ➔ Boston)<br><small>Aug 3 @ 6:05 PM</small></td>
+                        <td>Moynihan Train Hall ➔ Back Bay (9:50 PM).<br><strong>Car & Seats:</strong> Quiet Car (Car 9), Seats 7C, 7D, 8C</td>
+                        <td><span class="status-badge-green">Confirmed</span></td>
                     </tr>
                     <tr>
-                        <td><strong>NYC Attractions</strong></td>
+                        <td><strong>Amtrak 2</strong></td>
+                        <td>Acela #2155 (Boston ➔ D.C.)<br><small>Aug 6 @ 7:00 AM</small></td>
+                        <td>Boston South Station ➔ D.C. Union Station.<br><strong>Car & Seats:</strong> Business Class (Car 8), Seats 5C, 5D, 6C</td>
+                        <td><span class="status-badge-green">Confirmed (8DAD5E)</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Flight 2</strong></td>
+                        <td>United UA1147 (IAD ➔ SFO)<br><small>Aug 9 @ 8:35 AM</small></td>
+                        <td>Departs Washington Dulles (IAD) 8:35 AM ➔ SFO.<br><strong>Seats:</strong> 45C, 45D, 45E</td>
+                        <td><span class="status-badge-green">Confirmed (GMK4ZE)</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hotel 1</strong></td>
+                        <td>Hyatt Place Times Square</td>
+                        <td>New York City (Jul 31 – Aug 3)</td>
+                        <td><span class="status-badge-green">Confirmed</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>NYC Ticket</strong></td>
                         <td>Statue of Liberty Ferry</td>
                         <td>Book Reserve Ferry Tickets in advance via <a class="link-btn" href="https://www.statuecitycruises.com/" target="_blank">Statue City Cruises</a>.</td>
-                        <td><span class="status-badge">Action Needed</span></td>
+                        <td><span class="status-badge-amber">Action Needed</span></td>
                     </tr>
                     <tr>
-                        <td><strong>NYC Attractions</strong></td>
+                        <td><strong>NYC Ticket</strong></td>
                         <td>9/11 Memorial & Museum</td>
-                        <td>Reserve timed-entry admission pass online at <a class="link-btn" href="https://www.911memorial.org/" target="_blank">911memorial.org</a>.</td>
-                        <td><span class="status-badge">Action Needed</span></td>
+                        <td>Reserve timed-entry pass at <a class="link-btn" href="https://www.911memorial.org/" target="_blank">911memorial.org</a>.</td>
+                        <td><span class="status-badge-amber">Action Needed</span></td>
                     </tr>
                     <tr>
-                        <td><strong>NYC Entertainment</strong></td>
-                        <td>Broadway Show Tickets</td>
-                        <td>Pre-book theater tickets for Broadway performance in advance.</td>
-                        <td><span class="status-badge">Optional</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>D.C. Attractions</strong></td>
+                        <td><strong>D.C. Ticket</strong></td>
                         <td>National Archives Museum Pass</td>
-                        <td>Reserve $1 timed-entry passes online at <a class="link-btn" href="https://visit.archives.gov/" target="_blank">visit.archives.gov</a> to bypass general lines.</td>
-                        <td><span class="status-badge">Recommended</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>D.C. Attractions</strong></td>
-                        <td>Smithsonian Museums Entry</td>
-                        <td>Natural History & American History are free. Entry at 10 AM opening recommended.</td>
-                        <td><span class="status-badge">No Pass Required</span></td>
+                        <td>Reserve $1 timed pass at <a class="link-btn" href="https://visit.archives.gov/" target="_blank">visit.archives.gov</a>.</td>
+                        <td><span class="status-badge-amber">Recommended</span></td>
                     </tr>
                     <tr>
                         <td><strong>Transit Setup</strong></td>
                         <td>Mobile Transit Wallets</td>
                         <td>
-                            • <strong>NYC:</strong> OMNY Tap-to-Pay (Apple Pay / Google Pay)<br>
+                            • <strong>NYC:</strong> OMNY Tap-to-Pay (Apple / Google Pay)<br>
                             • <strong>Boston:</strong> MBTA Contactless / CharlieCard<br>
                             • <strong>D.C.:</strong> SmarTrip Pass on Mobile Wallet
                         </td>
-                        <td><span class="status-badge">Phone Setup</span></td>
+                        <td><span class="status-badge-amber">Phone Setup</span></td>
                     </tr>
                 </tbody>
             </table>
